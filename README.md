@@ -10,13 +10,14 @@ It is an open source Android application that allows register a word and your me
 
 
 # Screenshots
-<img src="extras/screen-cadastre-word.png" width="300px" height="500px" />
-<img src="extras/screen-cadastre.png" width="300px" height="500px" />
-<img src="extras/screen-list-words-2.png" width="300px" height="500px" />
-<img src="extras/screen-list-words.png" width="300px" height="500px" />
-<img src="extras/screen-main.png" width="300px" height="500px" />
-<img src="extras/screen-photo.png" width="300px" height="500px" />
-
+<p align="center">
+    <img src="extras/screen-cadastre-word.png" width="300px" height="500px" />
+    <img src="extras/screen-cadastre.png" width="300px" height="500px" />
+    <img src="extras/screen-list-words-2.png" width="300px" height="500px" />
+    <img src="extras/screen-list-words.png" width="300px" height="500px" />
+    <img src="extras/screen-main.png" width="300px" height="500px" />
+    <img src="extras/screen-photo.png" width="300px" height="500px" />
+</p>
 
 # Contributions
 Contributions for improve the app are welcome. 
