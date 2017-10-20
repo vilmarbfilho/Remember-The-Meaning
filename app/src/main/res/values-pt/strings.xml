@@ -1,0 +1,113 @@
+<resources>
+    <string name="app_name">"Remember The Meaning"</string>
+    <string name="app_name_simple">"RTM"</string>
+    <string name="menu">"Menu"</string>
+    <string name="help">"Ajuda"</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+
+
+    <string name="txt_word">palavra</string>
+    <string name="txt_meaning">significado</string>
+    <string name="txt_btn_save">SALVAR</string>
+    <string name="txt_btn_delete">EXCLUIR</string>
+    <string name="txt_btn_search">Buscar</string>
+    <string name="txt_btn_previous">Anterior</string>
+    <string name="txt_btn_next">Próximo</string>
+    <string name="txt_list_empty">Sem palavras cadastradas</string>
+    <string name="txt_list_meaning">Sem significados para se lembrar :)</string>
+    <string name="txt_info_list">Últimas palavras/frases cadastradas...</string>
+    <string name="txt_info_search">Palavras/frases encontradas...</string>
+    <string name="txt_result_search">Palavras/frases não encontradas...</string>
+    <string name="txt_info_full_words">Palavras/frases cadastradas...</string>
+    <string name="txt_info_language">Sem Palavras/frases cadastradas...</string>
+    <string name="txt_notification">Você possui novos significados para se lembrar...</string>
+    <string name="txt_dialog_delete">Tem certeza que deseja excluir a palavra/frase?</string>
+    <string name="txt_dialog_language">Você ainda não possui um idioma cadastrado. Deseja cadastrar?</string>
+    <string name="txt_dialog_language_settings">Você ainda não possui um idioma cadastrado. Acesse o menu Idioma e cadastre um idioma para definir como padrão.</string>
+    <string name="txt_dialog_language_delete">Você não pode excluir um idioma que contenha palavras vinculadas. Exclua as palavras antes de tentar novamente.</string>
+    <string name="txt_dialog_confirm_delete_language">Tem certeza que deseja excluir o idioma selecionado?</string>
+    <string name="msg_validade">Você digitou uma palavra/frase muito curta!</string>
+    <string name="txt_saved">palavra/frase salva!</string>
+    <string name="txt_update">palavra/frase atualizada!</string>
+    <string name="txt_settings_update">Configurações atualizadas!</string>
+    <string name="title_dialog_delete">Excluir</string>
+    <string name="title_fragment_search">Busca</string>
+    <string name="title_fragment_language">Idioma</string>
+    <string name="title_activity_edit">Editar</string>
+    <string name="title_activity_remember">Lembre-se</string>
+    <string name="title_fragment_quick_cadastre">Cadastro rápido</string>
+    <string name="title_fragment_full_cadastre">Cadastro completo</string>
+    <string name="title_fragment_settings">Configurações</string>
+    <string name="txt_dialog_confirm">Ok</string>
+    <string name="txt_dialog_cancel">Cancelar</string>
+    <string name="txt_title_language">Escolha um idioma</string>
+
+
+
+    <string name="hint_et_notification">Notificações</string>
+    <string name="hint_et_language">Idioma</string>
+    <string name="hint_et_source">Palavra / Frase</string>
+    <string name="hint_et_result">Significado</string>
+
+
+    <string name="txt_btn_language">Idioma</string>
+    <string name="txt_btn_interval">Notificações</string>
+
+    <string name="btn_back_exit">Sair</string>
+    <string name="msg_interval">Encolha o intervalo (em horas) entre cada notificação.</string>
+    <string name="settings_title_interval">Intervalo das Notificações</string>
+    <string name="settings_title_language">Idioma Padrão</string>
+    <string name="settings_txt_interval">Defina o intervalo global das notificações (em horas). Ele será usado nas palavras/frases cadastradas que não forem definidos um intervalo.</string>
+    <string name="settings_txt_language">Defina o idioma que será usado como padrão no cadastro rápido.</string>
+    <string name="active">Ativo</string>
+    <string-array name="itens_menu_string">
+        <item>Início</item>
+        <item>Cadastro Completo</item>
+        <item>Idioma</item>
+        <item>Configurações</item>
+        <!--<item>Ajuda</item>-->
+        <item>Feedback</item>
+        <!--<item>Estatísticas</item>-->
+    </string-array>
+
+    <!-- Main Menu-->
+    <string name="search_title">pesquisa</string>
+    <string name="search_hint">busca palavras</string>
+
+    <string name="msg_empty_list">Sem Palavras...</string>
+
+    <!-- dialog -->
+    <string name="title_dialog_interval">Intervalo das Notificações</string>
+    <string name="title_new_language">Novo Idioma</string>
+    <string name="title_edit_language">Editar Idioma</string>
+    <string name="msg_dialog_interval">Escolha o intervalo (em horas) entre cada notificação.</string>
+    <string name="btn_dialog_confirm">Ok</string>
+    <string name="btn_dialog_cancel">Cancelar</string>
+
+    <string-array name="option_dialog_record">
+        <item>Play</item>
+        <item>Excluir</item>
+    </string-array>
+
+    <string name="title_dialog_picture">Images</string>
+    <string-array name="option_dialog_picture">
+        <item>Tirar foto</item>
+        <item>Escolher da galeria</item>
+    </string-array>
+
+    <!-- errors -->
+    <string name="error_language_empty">Você não cadastrou um idioma corretamente. Tente denovo.</string>
+
+    <!-- toolbar -->
+    <string name="name_checkbox">Ativo</string>
+
+    <!-- notifications -->
+    <string name="title_notification">RTM</string>
+    <string name="text_notification">Você possui novos significados para se lembrar...</string>
+
+    <!-- Card views -->
+    <string name="empty_card">Não existem mais palavras para serem lembradas.</string>
+
+</resources>

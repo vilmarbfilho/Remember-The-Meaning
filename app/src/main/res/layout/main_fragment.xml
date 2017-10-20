@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_E8E8E8"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/CustomTextView"
+        android:text="@string/app_name"
+        android:textColor="@color/gray_757575"
+        android:textSize="@dimen/font_18sp"
+        android:textAppearance="@style/TextAppearance.Cuprum.Bold"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="@dimen/margin_20px"
+        android:layout_marginRight="@dimen/margin_20px"
+        android:layout_marginTop="@dimen/margin_20px"
+        android:background="@android:color/white" >
+
+        <ListView
+            android:id="@+id/list_indexed_words"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_20px"
+            android:layout_marginRight="@dimen/margin_20px"
+            android:layout_marginTop="@dimen/margin_20px"
+            android:divider="@color/gray_949494"
+            android:dividerHeight="1dp" />
+
+        <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_above="@+id/admob"
+            android:src="@drawable/ic_add"
+            fab:fab_colorNormal="@color/red_FF0000"
+            fab:fab_colorPressed="@color/red_FF4D4D"
+            fab:fab_colorRipple="@color/red_FF9999" />
+
+    </FrameLayout>
+
+</LinearLayout>

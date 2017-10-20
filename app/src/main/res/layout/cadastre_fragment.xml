@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_E8E8E8"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/CustomTextView"
+        android:text="@string/app_name"
+        android:textColor="@color/gray_757575"
+        android:textSize="@dimen/font_18sp"
+        android:textAppearance="@style/TextAppearance.Cuprum.Bold"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/margin_20px"
+        android:layout_marginRight="@dimen/margin_20px"
+        android:layout_marginTop="@dimen/margin_20px"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_30px"
+                android:layout_marginLeft="@dimen/margin_20px"
+                android:layout_marginRight="@dimen/margin_20px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_fragment_full_cadastre"
+                    android:textColor="@color/gray_757575"
+                    android:textStyle="bold" />
+
+                <!--<Chronometer-->
+                    <!--android:id="@+id/chronometer"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="@color/gray_757575"-->
+                    <!--android:text="00:00"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:layout_alignParentRight="true"/>-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20px"
+                android:layout_marginRight="@dimen/margin_20px"
+                android:layout_marginTop="@dimen/margin_30px"
+                android:gravity="center">
+
+                <!--<Button-->
+                    <!--android:id="@+id/btn_save"-->
+                    <!--android:layout_width="110dp"-->
+                    <!--android:layout_height="@dimen/height_84px"-->
+                    <!--android:drawableLeft="@drawable/ic_check_white_24dp"-->
+                    <!--android:paddingLeft="10dp"-->
+                    <!--android:text="@string/txt_btn_save"-->
+                    <!--android:background="@drawable/bg_btn_blue"/>-->
+
+                <LinearLayout
+                    android:id="@+id/ll_btn_save"
+                    android:layout_width="100dp"
+                    android:layout_height="@dimen/height_84px"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:background="@drawable/bg_btn_blue"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:src="@drawable/ic_check_white_24dp"/>
+
+                    <TextView
+                        android:paddingLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/font_14sp"
+                        android:textColor="@android:color/white"
+                        android:text="@string/txt_btn_save" />
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btn_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_camera"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"/>
+
+                <!--<ImageButton-->
+                    <!--android:id="@+id/btn_audio"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/ic_mic"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_alignParentRight="true" />-->
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_word"
+                style="@style/CustomEditText"
+                android:hint="@string/hint_et_source"
+                android:maxLength="70"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/et_meaning"
+                style="@style/CustomEditText"
+                android:hint="@string/hint_et_result"
+                android:maxLength="70"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_84px"
+                    android:layout_weight="0.50"
+                    android:layout_marginTop="@dimen/margin_30px"
+                    android:layout_marginLeft="@dimen/margin_20px"
+                    android:background="@drawable/background_input_data">
+
+                    <ImageButton
+                        android:id="@+id/ib_new_language"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.30"
+                        android:src="@drawable/ic_world"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent" />
+
+                    <EditText
+                        android:id="@+id/et_language"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.70"
+                        android:editable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/hint_et_language"
+                        android:gravity="bottom"
+                        android:textColorHint="@color/gray_757575"
+                        android:textColor="@color/gray_757575"
+                        android:textSize="@dimen/font_16sp"
+                        android:ellipsize="end"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_notification"
+                    style="@style/CustomEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_84px"
+                    android:layout_weight="0.50"
+                    android:drawableLeft="@drawable/ic_clock"
+                    android:drawablePadding="10dp"
+                    android:editable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/hint_et_notification"
+                    android:textColor="@color/gray_757575"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <include layout="@layout/item_audio" />
+
+            <include layout="@layout/item_image" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

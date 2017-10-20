@@ -1,0 +1,10 @@
+.gradle
+/gradle.properties
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/markdown-navigator.xml
+/.idea/markdown-navigator/profiles_settings.xml
+.DS_Store
+/build
+/captures
