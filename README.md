@@ -8,6 +8,8 @@ Remember The Meaning is a simple app, destined for student of languages.
 # What does this app do?
 It is an open source Android application that allows register a word and your meaning in the language studied, to define a interval for start to receive noticatications for remember the meaning of word castraded.
 
+# Post blog
+Check out the blog post here: http://vlabs.com.br/2017/10/21/remember-the-meaning/
 
 # Screenshots
 <p align="center">
