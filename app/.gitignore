@@ -1,6 +1,0 @@
-/build
-/gradle.properties
-
-# Keystore files
-*.jks
-*.keystore
