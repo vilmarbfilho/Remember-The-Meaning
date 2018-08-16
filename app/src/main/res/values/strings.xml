@@ -1,0 +1,112 @@
+<resources>
+    <string name="app_name">"Remember The Meaning"</string>
+    <string name="app_name_simple">"RTM"</string>
+    <string name="menu">"Menu"</string>
+    <string name="help">"Help"</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+
+
+    <string name="txt_word">word</string>
+    <string name="txt_meaning">meaning</string>
+    <string name="txt_btn_save">SAVE</string>
+    <string name="txt_btn_delete">DELETE</string>
+    <string name="txt_btn_search">Search</string>
+    <string name="txt_btn_previous">Previous</string>
+    <string name="txt_btn_next">Next</string>
+    <string name="txt_list_empty">No words recorded</string>
+    <string name="txt_list_meaning">Without meaning to remember :)</string>
+    <string name="txt_info_list">Last words/phrases registered...</string>
+    <string name="txt_info_search">Words/Phrases found...</string>
+    <string name="txt_result_search">Words/Phrases not found...</string>
+    <string name="txt_info_full_words">Words/Phrases registered...</string>
+    <string name="txt_info_language">No Words/Phrases registered...</string>
+    <string name="txt_notification">You have new meanings to remember...</string>
+    <string name="txt_dialog_delete">Are you sure you want to delete the word/phrase?</string>
+    <string name="txt_dialog_language">Do not have a registered language. Want to register?</string>
+    <string name="txt_dialog_language_settings">Do not have a registered language. Access the Language menu and sign language to set as default.</string>
+    <string name="txt_dialog_language_delete">You can not delete language that contains related words. Delete the words before trying again.</string>
+    <string name="txt_dialog_confirm_delete_language">Are you sure you want to delete the selected language?</string>
+    <string name="msg_validade">You typed a word/phrase too short!</string>
+    <string name="txt_saved">word/phrase save!</string>
+    <string name="txt_update">word/phrase updated!</string>
+    <string name="txt_settings_update">Settings updated!</string>
+    <string name="title_dialog_delete">Delete</string>
+    <string name="title_fragment_search">Search</string>
+    <string name="title_fragment_language">Language</string>
+    <string name="title_activity_edit">Edit</string>
+    <string name="title_activity_remember">Remember</string>
+    <string name="title_fragment_quick_cadastre">Cadastre quick</string>
+    <string name="title_fragment_full_cadastre">Cadastre complete</string>
+    <string name="title_fragment_settings">Settings</string>
+    <string name="txt_dialog_confirm">Ok</string>
+    <string name="txt_dialog_cancel">Cancel</string>
+    <string name="txt_title_language">Select language</string>
+
+
+
+    <string name="hint_et_notification">Notifications</string>
+    <string name="hint_et_language">Language</string>
+    <string name="hint_et_source">Word / Phrase</string>
+    <string name="hint_et_result">Meaning</string>
+
+
+    <string name="txt_btn_language">Language</string>
+    <string name="txt_btn_interval">Notifications</string>
+
+    <string name="btn_back_exit">Exit</string>
+    <string name="msg_interval">Shrink the interval (in hours) between each notification.</string>
+    <string name="settings_title_interval">Range of Notifications</string>
+    <string name="settings_title_language">Default language</string>
+    <string name="settings_txt_interval">Set the global range of the notifications (in hours). It will be used in the words / phrases that are not registered defined a range.</string>
+    <string name="active">Active</string>
+    <string-array name="itens_menu_string">
+        <item>Main</item>
+        <item>Cadastre complete</item>
+        <item>Language</item>
+        <item>Settings</item>
+        <!--<item>Ajuda</item>-->
+        <item>Feedback</item>>
+        <!--<item>Statistics</item>-->
+    </string-array>
+
+    <!-- Main Menu-->
+    <string name="search_title">search</string>
+    <string name="search_hint">search words</string>
+
+    <string name="msg_empty_list">No word found...</string>
+
+    <!-- dialog -->
+    <string name="title_dialog_interval">Range of Notifications</string>
+    <string name="title_new_language">New Language</string>
+    <string name="title_edit_language">Edit Language</string>
+    <string name="msg_dialog_interval">Shrink the interval (in hours) between each notification.</string>
+    <string name="btn_dialog_confirm">Ok</string>
+    <string name="btn_dialog_cancel">Cancel</string>
+
+    <string-array name="option_dialog_record">
+        <item>Play</item>
+        <item>Delete</item>
+    </string-array>
+
+    <string name="title_dialog_picture">Images</string>
+    <string-array name="option_dialog_picture">
+        <item>Take Photo</item>
+        <item>Choose form galery</item>
+    </string-array>
+
+    <!-- errors -->
+    <string name="error_language_empty">You not registered language correctly. Try again.</string>
+
+    <!-- toolbar -->
+    <string name="name_checkbox">Active</string>
+
+    <!-- notifications -->
+    <string name="title_notification">RTM</string>
+    <string name="text_notification">You have new meanings to remember...</string>
+
+    <!-- Card views -->
+    <string name="empty_card">There are no more words\n to be remembered.</string>
+
+</resources>

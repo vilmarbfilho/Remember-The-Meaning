@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_E8E8E8"
+    android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/CustomTextView"
+            android:text="@string/app_name"
+            android:textColor="@color/gray_757575"
+            android:textSize="@dimen/font_18sp"
+            android:textAppearance="@style/TextAppearance.Cuprum.Bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/margin_20px"
+            android:layout_marginRight="@dimen/margin_20px"
+            android:layout_marginTop="@dimen/margin_20px"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_20px"
+                android:layout_marginRight="@dimen/margin_20px"
+                android:layout_marginTop="@dimen/margin_30px"
+                android:text="@string/title_fragment_settings"
+                android:textColor="@color/gray_757575"
+                android:textStyle="bold" />
+
+
+            <TextView
+                style="@style/CustomTextView"
+                android:text="@string/settings_title_interval" />
+
+            <TextView
+                style="@style/SubTitle"
+                android:text="@string/settings_txt_interval" />
+
+            <EditText
+                android:id="@+id/et_notification"
+                style="@style/CustomEditText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_84px"
+                android:drawableLeft="@drawable/ic_clock"
+                android:drawablePadding="10dp"
+                android:editable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/hint_et_notification"
+                android:textColor="@color/gray_757575"
+                android:ellipsize="end" />
+
+            <TextView
+                style="@style/CustomTextView"
+                android:layout_marginTop="@dimen/width_20px"
+                android:text="@string/settings_title_language" />
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_save"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/height_84px"-->
+                <!--android:layout_marginLeft="@dimen/margin_20px"-->
+                <!--android:layout_marginRight="@dimen/margin_20px"-->
+                <!--android:paddingLeft="80dp"-->
+                <!--android:drawablePadding="-50dp"-->
+                <!--android:drawableLeft="@drawable/ic_check_white_24dp"-->
+                <!--android:background="@drawable/bg_btn_blue"  />-->
+
+            <LinearLayout
+                android:id="@+id/ll_btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_84px"
+                android:layout_marginLeft="@dimen/margin_20px"
+                android:layout_marginRight="@dimen/margin_20px"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="@drawable/bg_btn_blue"
+                android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:src="@drawable/ic_check_white_24dp"/>
+
+            <TextView
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_14sp"
+                android:textColor="@android:color/white"
+                android:text="@string/txt_btn_save" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
