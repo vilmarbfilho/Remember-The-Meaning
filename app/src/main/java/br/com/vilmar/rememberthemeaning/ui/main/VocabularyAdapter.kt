@@ -4,9 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import br.com.vilmar.rememberthemeaning.database.domain.Word
+import br.com.vilmar.rememberthemeaning.database.model.Vocabulary
 import com.vilmar.rememberthemeaning.app.R
 
-class VocabularyAdapter(var vocabulary: List<Word>):
+class VocabularyAdapter(var vocabulary: List<Vocabulary>):
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

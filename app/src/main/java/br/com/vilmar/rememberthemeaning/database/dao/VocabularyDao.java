@@ -15,11 +15,12 @@ import java.util.List;
 import br.com.vilmar.rememberthemeaning.database.DBHelper;
 import br.com.vilmar.rememberthemeaning.database.model.Media;
 import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.repository.VocabularyDataSource;
 
 /**
  * Created by vilmar on 22/06/14.
  */
-public class VocabularyDao {
+public class VocabularyDao implements VocabularyDataSource {
 
     private static Dao<Vocabulary, Integer> vocabularyDao = null;
     private QueryBuilder<Vocabulary, Integer> queryBuilder = null;
@@ -78,6 +79,7 @@ public class VocabularyDao {
         return null;
     }
 
+    @Override
     public List<Vocabulary> getAll() {
         try {
             return vocabularyDao.queryForAll();
