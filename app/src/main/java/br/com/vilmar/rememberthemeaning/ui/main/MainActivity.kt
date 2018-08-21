@@ -18,17 +18,23 @@ class MainActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = VocabularyViewModel()
-        binding.viewModel = viewModel
-
+        initBinding()
         setupRecyclerView()
+
+    }
+
+    private fun initBinding() {
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        viewModel = VocabularyViewModel(VocabularyRepository(VocabularyDao(this)))
+
+        binding.viewModel = viewModel
     }
 
     private fun setupRecyclerView() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        val vocabularyRepository = VocabularyRepository(VocabularyDao(this))
-        binding.recyclerView.adapter = VocabularyAdapter(vocabularyRepository.getAll())
+
+        binding.recyclerView.adapter = VocabularyAdapter(viewModel.getVocabulary())
     }
 
 }
