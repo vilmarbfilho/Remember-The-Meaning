@@ -10,7 +10,7 @@ class VocabularyViewModel(private val vocabularyRepository: VocabularyRepository
         return transformVocabularyToWord(vocabularyRepository.getAll())
     }
 
-    private fun transformVocabularyToWord(vocabulary: List<Vocabulary>) : List<Word> {
+    private fun transformVocabularyToWord(vocabulary: List<Vocabulary>): List<Word> {
         val listTemp = mutableListOf<Word>()
 
         vocabulary.forEach {
@@ -18,6 +18,10 @@ class VocabularyViewModel(private val vocabularyRepository: VocabularyRepository
         }
 
         return listTemp
+    }
+
+    fun startNewWordActivity() {
+
     }
 
 }

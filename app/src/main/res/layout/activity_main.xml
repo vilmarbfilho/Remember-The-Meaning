@@ -18,6 +18,17 @@
             android:id="@+id/include_toolbar"
             layout="@layout/toolbar"
             app:layout_constraintTop_toTopOf="parent"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_new_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:layout_marginEnd="@dimen/margin_15dp"
+            android:onClick="startNewWordActivity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add" />
         
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
