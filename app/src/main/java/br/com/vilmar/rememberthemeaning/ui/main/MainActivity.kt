@@ -1,5 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.main
 
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -16,12 +17,13 @@ class MainActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var viewModel: VocabularyViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         initBinding()
+        setupObserver()
         setupRecyclerView()
 
     }
@@ -29,9 +31,17 @@ class MainActivity: AppCompatActivity() {
     private fun initBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        viewModel = VocabularyViewModel(VocabularyRepository(VocabularyDao(this)))
+        viewModel = MainViewModel(VocabularyRepository(VocabularyDao(this)))
 
         binding.viewModel = viewModel
+    }
+
+    private fun setupObserver() {
+        viewModel.uiEventLiveData.observe(this, Observer {
+            when(it) {
+                1 -> openNewWordActivity()
+            }
+        })
     }
 
     private fun setupRecyclerView() {
@@ -40,7 +50,7 @@ class MainActivity: AppCompatActivity() {
         binding.recyclerView.adapter = VocabularyAdapter(viewModel.getVocabulary())
     }
 
-    fun startNewWordActivity(view: View) {
+    private fun openNewWordActivity() {
         startActivity(Intent(this, HomeActivity::class.java))
     }
 

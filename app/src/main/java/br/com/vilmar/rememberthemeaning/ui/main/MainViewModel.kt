@@ -1,10 +1,14 @@
 package br.com.vilmar.rememberthemeaning.ui.main
 
+import android.arch.lifecycle.ViewModel
 import br.com.vilmar.rememberthemeaning.database.domain.Word
 import br.com.vilmar.rememberthemeaning.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.repository.VocabularyRepository
+import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 
-class VocabularyViewModel(private val vocabularyRepository: VocabularyRepository) {
+class MainViewModel(private val vocabularyRepository: VocabularyRepository): ViewModel(){
+
+    val uiEventLiveData = SingleLiveEvent<Int>()
 
     fun getVocabulary():  List<Word> {
         return transformVocabularyToWord(vocabularyRepository.getAll())
@@ -21,7 +25,7 @@ class VocabularyViewModel(private val vocabularyRepository: VocabularyRepository
     }
 
     fun startNewWordActivity() {
-
+        uiEventLiveData.value = 1
     }
 
 }
