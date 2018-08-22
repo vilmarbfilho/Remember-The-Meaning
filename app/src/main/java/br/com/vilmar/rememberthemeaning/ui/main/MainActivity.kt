@@ -6,7 +6,6 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.View
 import br.com.vilmar.rememberthemeaning.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
@@ -23,9 +22,10 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initBinding()
-        setupObserver()
         setupRecyclerView()
 
+        observerVocabulary()
+        observerEvents()
     }
 
     private fun initBinding() {
@@ -36,7 +36,18 @@ class MainActivity: AppCompatActivity() {
         binding.viewModel = viewModel
     }
 
-    private fun setupObserver() {
+    private fun setupRecyclerView() {
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun observerVocabulary() {
+        viewModel.vocabulary.observe(this, Observer {
+            val vocabulary = it ?: emptyList()
+            binding.recyclerView.adapter = VocabularyAdapter(vocabulary)
+        })
+    }
+
+    private fun observerEvents() {
         viewModel.uiEventLiveData.observe(this, Observer {
             when(it) {
                 1 -> openNewWordActivity()
@@ -44,14 +55,13 @@ class MainActivity: AppCompatActivity() {
         })
     }
 
-    private fun setupRecyclerView() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-
-        binding.recyclerView.adapter = VocabularyAdapter(viewModel.getVocabulary())
-    }
-
     private fun openNewWordActivity() {
         startActivity(Intent(this, HomeActivity::class.java))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getVocabulary()
     }
 
 }

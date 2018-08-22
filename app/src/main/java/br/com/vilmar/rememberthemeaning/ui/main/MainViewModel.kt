@@ -9,9 +9,10 @@ import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 class MainViewModel(private val vocabularyRepository: VocabularyRepository): ViewModel(){
 
     val uiEventLiveData = SingleLiveEvent<Int>()
+    val vocabulary = SingleLiveEvent<List<Word>>()
 
-    fun getVocabulary():  List<Word> {
-        return transformVocabularyToWord(vocabularyRepository.getAll())
+    fun getVocabulary() {
+        vocabulary.value = transformVocabularyToWord(vocabularyRepository.getAll())
     }
 
     private fun transformVocabularyToWord(vocabulary: List<Vocabulary>): List<Word> {
