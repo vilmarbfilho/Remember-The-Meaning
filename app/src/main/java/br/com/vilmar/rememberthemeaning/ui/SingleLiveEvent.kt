@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning
+package br.com.vilmar.rememberthemeaning.ui
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.MutableLiveData
@@ -7,7 +7,7 @@ import android.support.annotation.MainThread
 import android.util.Log
 import java.util.concurrent.atomic.AtomicBoolean
 
-class SingleLiveEvent<T>(): MutableLiveData<T>() {
+class SingleLiveEvent<T>: MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)
 
@@ -41,8 +41,7 @@ class SingleLiveEvent<T>(): MutableLiveData<T>() {
     }
 
     companion object {
-        private val TAG = "SingleLiveData"
+        private const val TAG = "SingleLiveData"
     }
-
 
 }
