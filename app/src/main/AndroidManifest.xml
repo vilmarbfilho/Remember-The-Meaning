@@ -67,14 +67,6 @@
         </activity>
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.activity.WebViewActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity" />
-        </activity>
-
-        <activity
             android:name="br.com.vilmar.rememberthemeaning.ui.activity.RememberActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
