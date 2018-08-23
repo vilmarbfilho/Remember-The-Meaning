@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.feature;
+package br.com.vilmar.rememberthemeaning.util;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
