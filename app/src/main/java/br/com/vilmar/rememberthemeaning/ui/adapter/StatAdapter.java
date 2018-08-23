@@ -11,7 +11,7 @@ import com.vilmar.rememberthemeaning.app.R;
 
 import java.util.List;
 
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 
 /**
  * Created by vilmar on 03/04/15.

@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -14,7 +13,7 @@ import com.google.gson.Gson;
 import com.vilmar.rememberthemeaning.app.R;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.model.Settings;
+import br.com.vilmar.rememberthemeaning.data.database.model.Settings;
 import br.com.vilmar.rememberthemeaning.ui.widget.HourPicker;
 import br.com.vilmar.rememberthemeaning.util.HelperUtil;
 import br.com.vilmar.rememberthemeaning.util.SharedPreferenceHelper;

@@ -3,7 +3,7 @@ package br.com.vilmar.rememberthemeaning.ui.main
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import br.com.vilmar.rememberthemeaning.database.domain.Word
+import br.com.vilmar.rememberthemeaning.domain.Word
 import com.vilmar.rememberthemeaning.app.R
 
 class VocabularyAdapter(var wordList: List<Word>):

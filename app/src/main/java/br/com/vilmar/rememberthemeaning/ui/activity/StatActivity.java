@@ -7,10 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.vilmar.rememberthemeaning.app.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.vilmar.rememberthemeaning.database.dao.VocabularyDao;
+import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao;
 import br.com.vilmar.rememberthemeaning.ui.adapter.StatAdapter;
 
 /**

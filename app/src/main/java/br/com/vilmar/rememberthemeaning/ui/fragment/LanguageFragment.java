@@ -20,10 +20,9 @@ import com.vilmar.rememberthemeaning.app.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.dao.LanguageDao;
-import br.com.vilmar.rememberthemeaning.database.model.Language;
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.dao.LanguageDao;
+import br.com.vilmar.rememberthemeaning.data.database.model.Language;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 import br.com.vilmar.rememberthemeaning.ui.activity.CadastreEditActivity;
 import br.com.vilmar.rememberthemeaning.ui.adapter.VocabularyAdapter;
 import br.com.vilmar.rememberthemeaning.ui.dialog.DialogLanguage;

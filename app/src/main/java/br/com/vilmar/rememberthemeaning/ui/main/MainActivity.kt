@@ -6,8 +6,8 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import br.com.vilmar.rememberthemeaning.database.dao.VocabularyDao
-import br.com.vilmar.rememberthemeaning.repository.VocabularyRepository
+import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
+import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding

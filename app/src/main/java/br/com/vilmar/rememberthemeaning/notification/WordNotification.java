@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 
 /**
  * Created by vilmar on 08/07/14.

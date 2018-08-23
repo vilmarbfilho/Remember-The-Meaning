@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.database.model;
+package br.com.vilmar.rememberthemeaning.data.database.model;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;

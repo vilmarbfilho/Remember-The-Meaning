@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.database.model;
+package br.com.vilmar.rememberthemeaning.data.database.model;
 
 /**
  * Created by vilmar on 06/07/14.

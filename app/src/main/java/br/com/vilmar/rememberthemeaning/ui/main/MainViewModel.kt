@@ -1,9 +1,9 @@
 package br.com.vilmar.rememberthemeaning.ui.main
 
 import android.arch.lifecycle.ViewModel
-import br.com.vilmar.rememberthemeaning.database.domain.Word
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary
-import br.com.vilmar.rememberthemeaning.repository.VocabularyRepository
+import br.com.vilmar.rememberthemeaning.domain.Word
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
+import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 
 class MainViewModel(private val vocabularyRepository: VocabularyRepository): ViewModel(){

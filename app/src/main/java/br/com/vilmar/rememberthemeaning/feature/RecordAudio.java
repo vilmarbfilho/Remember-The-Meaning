@@ -9,10 +9,9 @@ import android.util.Log;
 import com.vilmar.rememberthemeaning.app.R;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.model.Media;
+import br.com.vilmar.rememberthemeaning.data.database.model.Media;
 import br.com.vilmar.rememberthemeaning.util.HelperUtil;
 import br.com.vilmar.rememberthemeaning.util.IoHelper;
 
