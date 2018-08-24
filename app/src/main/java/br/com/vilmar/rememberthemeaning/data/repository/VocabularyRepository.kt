@@ -1,11 +1,9 @@
 package br.com.vilmar.rememberthemeaning.data.repository
 
-import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
+import io.reactivex.Maybe
 
 class VocabularyRepository(val vocabularyDataSource: VocabularyDataSource) {
 
-    fun getAll(): List<Vocabulary> {
-        return vocabularyDataSource.getAll()
-    }
+    fun getAll() = Maybe.just(vocabularyDataSource.getAll())
 
 }
