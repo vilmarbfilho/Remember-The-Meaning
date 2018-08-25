@@ -20,9 +20,8 @@ class MainViewModel(private val vocabularyRepository: VocabularyRepository): Vie
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {vocabulary.value = transformVocabularyToWord(it)})
-
-        //vocabulary.value = transformVocabularyToWord(vocabularyRepository.getAll())
+                .map { transformVocabularyToWord(it) }
+                .subscribe {vocabulary.value = it})
     }
 
     private fun transformVocabularyToWord(vocabulary: List<Vocabulary>): List<Word> {

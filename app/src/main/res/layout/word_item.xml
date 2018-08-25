@@ -7,7 +7,7 @@
 
         <variable
             name="word"
-            type="br.com.vilmar.rememberthemeaning.database.domain.Word" />
+            type="br.com.vilmar.rememberthemeaning.domain.Word" />
 
     </data>
 
