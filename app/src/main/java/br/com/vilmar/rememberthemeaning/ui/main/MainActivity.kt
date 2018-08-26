@@ -5,7 +5,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
@@ -37,7 +37,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
     }
 
     private fun observerVocabulary() {
@@ -62,6 +62,12 @@ class MainActivity: AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         viewModel.getVocabulary()
+    }
+
+    companion object {
+
+        const val SPAN_COUNT = 2
+
     }
 
 }
