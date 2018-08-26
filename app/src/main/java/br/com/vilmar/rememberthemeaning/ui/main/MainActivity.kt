@@ -6,6 +6,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.Toolbar
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
@@ -22,6 +23,9 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         initBinding()
+
+        setupToolbar()
+
         setupRecyclerView()
 
         observerVocabulary()
@@ -34,6 +38,11 @@ class MainActivity: AppCompatActivity() {
         viewModel = MainViewModel(VocabularyRepository(VocabularyDao(this)))
 
         binding.viewModel = viewModel
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.includeToolbar as Toolbar)
+        supportActionBar?.title = getString(R.string.title_main)
     }
 
     private fun setupRecyclerView() {
