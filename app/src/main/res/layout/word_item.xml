@@ -19,6 +19,7 @@
         android:layout_marginTop="@dimen/margin_8dp">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/container_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white">
