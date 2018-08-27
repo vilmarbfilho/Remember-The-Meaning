@@ -25,13 +25,9 @@ class MainViewModel(private val vocabularyRepository: VocabularyRepository): Vie
     }
 
     private fun transformVocabularyToWord(vocabulary: List<Vocabulary>): List<Word> {
-        val listTemp = mutableListOf<Word>()
-
-        vocabulary.forEach {
-            listTemp.add(Word(it.word, it.meaning, it.language))
+        return vocabulary.map {
+            Word(it.word, it.meaning, it.language)
         }
-
-        return listTemp
     }
 
     fun startNewWordActivity() {
