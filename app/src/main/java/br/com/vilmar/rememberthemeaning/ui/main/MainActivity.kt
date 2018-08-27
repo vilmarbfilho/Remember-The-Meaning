@@ -41,7 +41,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(binding.includeToolbar as Toolbar)
+        setSupportActionBar(binding.includeToolbar?.toolbar)
         supportActionBar?.title = getString(R.string.title_main)
     }
 
