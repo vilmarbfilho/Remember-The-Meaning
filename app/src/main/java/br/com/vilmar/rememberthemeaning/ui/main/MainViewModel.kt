@@ -1,7 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.main
 
 import android.arch.lifecycle.ViewModel
-import br.com.vilmar.rememberthemeaning.domain.Word
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
@@ -14,20 +13,13 @@ class MainViewModel(private val vocabularyRepository: VocabularyRepository): Vie
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     val uiEventLiveData = SingleLiveEvent<Int>()
-    val vocabulary = SingleLiveEvent<List<Word>>()
+    val vocabulary = SingleLiveEvent<List<Vocabulary>>()
 
     fun getVocabulary() {
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .map { transformVocabularyToWord(it) }
                 .subscribe {vocabulary.value = it})
-    }
-
-    private fun transformVocabularyToWord(vocabulary: List<Vocabulary>): List<Word> {
-        return vocabulary.map {
-            Word(it.word, it.meaning, it.language)
-        }
     }
 
     fun startNewWordActivity() {

@@ -2,12 +2,11 @@ package br.com.vilmar.rememberthemeaning.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import br.com.vilmar.rememberthemeaning.domain.Word
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import com.vilmar.rememberthemeaning.app.R
 
-class VocabularyAdapter(var wordList: List<Word>):
+class VocabularyAdapter(var vocabularyList: List<Vocabulary>):
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     lateinit var listener: OnItemClickVocabularyAdapter
@@ -20,18 +19,18 @@ class VocabularyAdapter(var wordList: List<Word>):
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
         val binding = (holder as VocabularyViewHolder).binding
-        val word = wordList[position]
+        val vocabulary = vocabularyList[position]
 
-        binding?.word = word
+        binding?.vocabulary = vocabulary
 
         binding?.containerCard?.setOnClickListener {
-            listener.onClick(it, word)
+            listener.onClick(position)
         }
 
         binding?.executePendingBindings()
     }
 
-    override fun getItemCount() = wordList.size
+    override fun getItemCount() = vocabularyList.size
 
     fun setOnItemClickVocabularyAdapter(listener: OnItemClickVocabularyAdapter) {
         this.listener = listener
@@ -39,7 +38,7 @@ class VocabularyAdapter(var wordList: List<Word>):
 
     interface OnItemClickVocabularyAdapter {
 
-        fun onClick(view: View, word: Word)
+        fun onClick(position: Int)
 
     }
 }

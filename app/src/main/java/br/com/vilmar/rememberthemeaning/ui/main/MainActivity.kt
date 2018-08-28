@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.Toast
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
-import br.com.vilmar.rememberthemeaning.domain.Word
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
@@ -60,8 +59,8 @@ class MainActivity: AppCompatActivity() {
             binding.recyclerView.adapter = adapter
 
             adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
-                override fun onClick(view: View, word: Word) {
-                    Toast.makeText(this@MainActivity, word.source, Toast.LENGTH_LONG).show()
+                override fun onClick(position: Int) {
+                    Toast.makeText(this@MainActivity, "word clicked", Toast.LENGTH_LONG).show()
                 }
             })
         })

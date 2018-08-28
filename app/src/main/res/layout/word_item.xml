@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="word"
-            type="br.com.vilmar.rememberthemeaning.domain.Word" />
+            name="vocabulary"
+            type="br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary" />
 
     </data>
 
@@ -46,7 +46,7 @@
                 android:layout_marginLeft="@dimen/margin_16dp"
                 android:layout_marginStart="@dimen/margin_5dp"
                 android:layout_marginTop="@dimen/margin_16dp"
-                android:text="@{word.language.name}"
+                android:text="@{vocabulary.language.name}"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/fl_container_image"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_16dp"
                 android:layout_marginStart="@dimen/margin_5dp"
-                android:text="@{word.source}"
+                android:text="@{vocabulary.word}"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_language"
@@ -71,7 +71,7 @@
                 android:layout_marginBottom="@dimen/margin_16dp"
                 android:layout_marginLeft="@dimen/margin_16dp"
                 android:layout_marginStart="@dimen/margin_5dp"
-                android:text="@{word.translated}"
+                android:text="@{vocabulary.meaning}"
                 android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
