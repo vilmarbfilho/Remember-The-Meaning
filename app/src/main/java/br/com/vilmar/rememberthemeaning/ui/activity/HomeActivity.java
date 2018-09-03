@@ -57,7 +57,9 @@ public class HomeActivity extends BaseActivity implements AdapterView.OnItemClic
         onConfigListItem();
 
         if (savedInstanceState == null) {
-            selectItem(0);
+            //selectItem(0);
+            // TODO workaround for open cadastre before refactor him
+            selectItem(1);
         }
     }
 

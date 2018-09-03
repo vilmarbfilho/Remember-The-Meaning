@@ -109,4 +109,7 @@
     <!-- Card views -->
     <string name="empty_card">There are no more words\n to be remembered.</string>
 
+    <!-- Title Screen -->
+    <string name="title_main">Deck</string>
+
 </resources>

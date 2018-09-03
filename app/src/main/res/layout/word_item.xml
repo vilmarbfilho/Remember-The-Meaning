@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vocabulary"
+            type="br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_8dp"
+        android:layout_marginStart="@dimen/margin_8dp"
+        android:layout_marginTop="@dimen/margin_8dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white">
+
+            <FrameLayout
+                android:id="@+id/fl_container_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_container_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:src="@tools:sample/avatars" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16dp"
+                android:layout_marginStart="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@{vocabulary.language.name}"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fl_container_image"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/tv_word_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16dp"
+                android:layout_marginStart="@dimen/margin_5dp"
+                android:text="@{vocabulary.word}"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_language"
+                tools:text="@tools:sample/lorem" />
+
+            <TextView
+                android:id="@+id/tv_word_translated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_16dp"
+                android:layout_marginLeft="@dimen/margin_16dp"
+                android:layout_marginStart="@dimen/margin_5dp"
+                android:text="@{vocabulary.meaning}"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_word_source"
+                tools:text="@tools:sample/lorem" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>

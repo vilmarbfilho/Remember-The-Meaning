@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.database;
+package br.com.vilmar.rememberthemeaning.data.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,9 +11,9 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.model.Language;
-import br.com.vilmar.rememberthemeaning.database.model.Media;
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.model.Language;
+import br.com.vilmar.rememberthemeaning.data.database.model.Media;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 
 /**
  * Created by vilmar on 22/06/14.

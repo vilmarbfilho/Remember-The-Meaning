@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.feature;
+package br.com.vilmar.rememberthemeaning.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
-import br.com.vilmar.rememberthemeaning.database.model.Media;
+import br.com.vilmar.rememberthemeaning.data.database.model.Media;
 import br.com.vilmar.rememberthemeaning.util.HelperUtil;
 
 /**

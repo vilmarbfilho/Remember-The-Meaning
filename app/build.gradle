@@ -28,6 +28,10 @@ android {
         manifestPlaceholders = [api_key_crashlytics: project.ext.Crashlytics]
     }
 
+    dataBinding {
+        enabled true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -82,6 +86,7 @@ ext {
     libSupportVersion = '26.1.0'
     constraintVersion = '1.0.2'
     espressoVersion = '3.0.1'
+    lifecycle_version = "1.1.1"
 }
 
 dependencies {
@@ -118,5 +123,12 @@ dependencies {
 
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+
+    // rx
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
 
 }

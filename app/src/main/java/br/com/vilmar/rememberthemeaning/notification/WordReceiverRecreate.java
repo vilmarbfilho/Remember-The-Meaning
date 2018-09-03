@@ -8,8 +8,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.vilmar.rememberthemeaning.database.dao.VocabularyDao;
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 
 /**
  * Created by vilmar on 27/06/14.

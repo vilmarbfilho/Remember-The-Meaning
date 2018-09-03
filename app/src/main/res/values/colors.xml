@@ -30,4 +30,12 @@
     <color name="black_000000">#000000</color>
     <color name="marine_338585">#338585</color>
 
+    <!-- START - Refactor APP -->
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- END - Refactor APP -->
+
 </resources>

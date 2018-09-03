@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.database.dao;
+package br.com.vilmar.rememberthemeaning.data.database.dao;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,8 +10,8 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.com.vilmar.rememberthemeaning.database.DBHelper;
-import br.com.vilmar.rememberthemeaning.database.model.Language;
+import br.com.vilmar.rememberthemeaning.data.database.DBHelper;
+import br.com.vilmar.rememberthemeaning.data.database.model.Language;
 
 /**
  * Created by vilmar on 01/08/14.

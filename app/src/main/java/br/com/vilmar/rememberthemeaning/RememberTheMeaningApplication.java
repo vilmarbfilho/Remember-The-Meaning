@@ -7,7 +7,7 @@ import com.vilmar.rememberthemeaning.app.R;
 
 import java.io.File;
 
-import br.com.vilmar.rememberthemeaning.database.model.Settings;
+import br.com.vilmar.rememberthemeaning.data.database.model.Settings;
 import br.com.vilmar.rememberthemeaning.util.IoHelper;
 import br.com.vilmar.rememberthemeaning.util.SharedPreferenceHelper;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;

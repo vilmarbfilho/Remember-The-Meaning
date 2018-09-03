@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.feature;
+package br.com.vilmar.rememberthemeaning.util;
 
 import android.app.Activity;
 import android.content.Context;

@@ -16,8 +16,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.database.dao.VocabularyDao;
-import br.com.vilmar.rememberthemeaning.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao;
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
 import br.com.vilmar.rememberthemeaning.ui.activity.RememberActivity;
 import br.com.vilmar.rememberthemeaning.util.SharedPreferenceHelper;
 import br.com.vilmar.rememberthemeaning.util.TinyDB;
