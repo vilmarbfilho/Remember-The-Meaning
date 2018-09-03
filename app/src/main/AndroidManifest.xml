@@ -58,7 +58,7 @@
         </activity>
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.activity.CadastreEditActivity"
+            android:name="br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data

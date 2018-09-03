@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.ui.activity;
+package br.com.vilmar.rememberthemeaning.ui.cadastreedit;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -29,6 +29,7 @@ import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao;
 import br.com.vilmar.rememberthemeaning.data.database.model.Language;
 import br.com.vilmar.rememberthemeaning.data.database.model.Media;
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
+import br.com.vilmar.rememberthemeaning.ui.activity.BaseActivity;
 import br.com.vilmar.rememberthemeaning.util.Image;
 import br.com.vilmar.rememberthemeaning.util.ImageHelper;
 import br.com.vilmar.rememberthemeaning.notification.WordNotification;

@@ -6,10 +6,11 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.widget.Toast
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
+import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
+import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
 
@@ -79,8 +80,11 @@ class MainActivity: AppCompatActivity() {
 
     private fun observerEditVocabulary() {
         viewModel.vocabularyEventLiveData.observe(this, Observer {
-            Toast.makeText(this@MainActivity, "open edit word", Toast.LENGTH_SHORT).show()
-            //startActivity(Intent(this, HomeActivity::class.java))
+            val intent = Intent(this, CadastreEditActivity::class.java)
+
+            intent.putExtra(Vocabulary.WORDBUNDLE, it)
+
+            startActivity(intent)
         })
     }
 

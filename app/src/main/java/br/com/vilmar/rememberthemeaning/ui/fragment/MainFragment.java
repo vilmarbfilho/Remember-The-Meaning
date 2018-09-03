@@ -27,7 +27,7 @@ import java.util.List;
 
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao;
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
-import br.com.vilmar.rememberthemeaning.ui.activity.CadastreEditActivity;
+import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity;
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity;
 import br.com.vilmar.rememberthemeaning.ui.adapter.VocabularyAdapter;
 
