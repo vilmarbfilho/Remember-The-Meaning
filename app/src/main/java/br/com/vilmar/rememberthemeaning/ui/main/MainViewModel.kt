@@ -14,16 +14,26 @@ class MainViewModel(private val vocabularyRepository: VocabularyRepository): Vie
 
     val uiEventLiveData = SingleLiveEvent<Int>()
     val vocabulary = SingleLiveEvent<List<Vocabulary>>()
+    val vocabularyEventLiveData = SingleLiveEvent<Vocabulary>()
+
+    private lateinit var vocabularyList: List<Vocabulary>
 
     fun getVocabulary() {
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {vocabulary.value = it})
+                .subscribe {
+                    vocabularyList = it
+                    vocabulary.value = it
+                })
     }
 
     fun startNewWordActivity() {
         uiEventLiveData.value = 1
+    }
+
+    fun openWordActivity(pos: Int) {
+        vocabularyEventLiveData.value = vocabularyList[pos]
     }
 
     override fun onCleared() {

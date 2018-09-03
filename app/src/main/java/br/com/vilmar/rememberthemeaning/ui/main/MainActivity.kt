@@ -6,8 +6,6 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.Toolbar
-import android.view.View
 import android.widget.Toast
 import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
@@ -30,8 +28,9 @@ class MainActivity: AppCompatActivity() {
 
         setupRecyclerView()
 
-        observerVocabulary()
-        observerEvents()
+        observerVocabularyAdapter()
+        observerEditVocabulary()
+        observerUIEvents()
     }
 
     private fun initBinding() {
@@ -51,7 +50,7 @@ class MainActivity: AppCompatActivity() {
         binding.recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
     }
 
-    private fun observerVocabulary() {
+    private fun observerVocabularyAdapter() {
         viewModel.vocabulary.observe(this, Observer {
             val vocabulary = it ?: emptyList()
             val adapter = VocabularyAdapter(vocabulary)
@@ -60,13 +59,13 @@ class MainActivity: AppCompatActivity() {
 
             adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
                 override fun onClick(position: Int) {
-                    Toast.makeText(this@MainActivity, "word clicked", Toast.LENGTH_LONG).show()
+                    viewModel.openWordActivity(position)
                 }
             })
         })
     }
 
-    private fun observerEvents() {
+    private fun observerUIEvents() {
         viewModel.uiEventLiveData.observe(this, Observer {
             when(it) {
                 1 -> openNewWordActivity()
@@ -76,6 +75,13 @@ class MainActivity: AppCompatActivity() {
 
     private fun openNewWordActivity() {
         startActivity(Intent(this, HomeActivity::class.java))
+    }
+
+    private fun observerEditVocabulary() {
+        viewModel.vocabularyEventLiveData.observe(this, Observer {
+            Toast.makeText(this@MainActivity, "open edit word", Toast.LENGTH_SHORT).show()
+            //startActivity(Intent(this, HomeActivity::class.java))
+        })
     }
 
     override fun onResume() {
