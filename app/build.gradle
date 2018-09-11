@@ -87,6 +87,7 @@ ext {
     constraintVersion = '1.0.2'
     espressoVersion = '3.0.1'
     lifecycle_version = "1.1.1"
+    daggerVersion = '2.17'
 }
 
 dependencies {
@@ -135,7 +136,10 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
 
     // dagger 2
-    implementation 'com.google.dagger:dagger:2.17'
-    kapt 'com.google.dagger:dagger-compiler:2.17'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
 
 }
