@@ -30,7 +30,7 @@ class MainViewModel @Inject constructor(private val vocabularyRepository: Vocabu
     }
 
     fun startNewWordActivity() {
-        uiEventLiveData.value = 1
+        uiEventLiveData.value = OPEN_NEW_WORD_SCREEN
     }
 
     fun openWordActivity(pos: Int) {
@@ -43,4 +43,9 @@ class MainViewModel @Inject constructor(private val vocabularyRepository: Vocabu
         }
     }
 
+    companion object {
+
+        const val OPEN_NEW_WORD_SCREEN = 1
+
+    }
 }

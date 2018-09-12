@@ -6,11 +6,10 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import br.com.vilmar.rememberthemeaning.data.database.dao.VocabularyDao
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
-import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
+import br.com.vilmar.rememberthemeaning.ui.main.MainViewModel.Companion.OPEN_NEW_WORD_SCREEN
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
 import dagger.android.AndroidInjection
@@ -71,7 +70,7 @@ class MainActivity: AppCompatActivity() {
     private fun observerUIEvents() {
         viewModel.uiEventLiveData.observe(this, Observer {
             when(it) {
-                1 -> openNewWordActivity()
+                OPEN_NEW_WORD_SCREEN -> openNewWordActivity()
             }
         })
     }
