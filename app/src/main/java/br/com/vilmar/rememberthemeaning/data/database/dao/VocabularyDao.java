@@ -12,6 +12,8 @@ import com.j256.ormlite.stmt.QueryBuilder;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import br.com.vilmar.rememberthemeaning.data.database.DBHelper;
 import br.com.vilmar.rememberthemeaning.data.database.model.Media;
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary;
@@ -27,6 +29,7 @@ public class VocabularyDao implements VocabularyDataSource {
 
     private Dao<Media, Integer> mediaDao = null;
 
+    @Inject
     public VocabularyDao(Context context) {
         try {
             vocabularyDao = DBHelper.getHelper(context).getDao(Vocabulary.class);
