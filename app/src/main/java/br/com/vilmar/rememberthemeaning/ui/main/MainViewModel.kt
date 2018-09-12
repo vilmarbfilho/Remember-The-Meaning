@@ -7,8 +7,9 @@ import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class MainViewModel(private val vocabularyRepository: VocabularyRepository): ViewModel() {
+class MainViewModel @Inject constructor(private val vocabularyRepository: VocabularyRepository): ViewModel() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 

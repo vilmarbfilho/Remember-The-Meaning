@@ -13,14 +13,18 @@ import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class MainActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var viewModel: MainViewModel
+    @Inject
+    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         initBinding()
@@ -36,8 +40,6 @@ class MainActivity: AppCompatActivity() {
 
     private fun initBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        viewModel = MainViewModel(VocabularyRepository(VocabularyDao(this)))
 
         binding.viewModel = viewModel
     }
