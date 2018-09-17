@@ -88,6 +88,7 @@ ext {
     espressoVersion = '3.0.1'
     lifecycle_version = "1.1.1"
     daggerVersion = '2.17'
+    nhaarmanMockito = '1.6.0'
 }
 
 dependencies {
@@ -104,12 +105,16 @@ dependencies {
     // Test Dependencies
     testImplementation "org.mockito:mockito-core:${mockitoVersion}"
     testImplementation 'junit:junit:4.12'
+    testImplementation "com.google.truth:truth:0.42"
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:${nhaarmanMockito}"
+
+    androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.2.1'
     androidTestImplementation "org.mockito:mockito-android:${mockitoVersion}"
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:${espressoVersion}"
     androidTestImplementation "com.android.support.test.espresso:espresso-contrib:${espressoVersion}"
-    testImplementation "com.google.truth:truth:0.42"
-    androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.2.1'
+    androidTestImplementation "com.nhaarman:mockito-kotlin-kt1.1:${nhaarmanMockito}"
 
     implementation 'com.j256.ormlite:ormlite-android:4.48'
     implementation 'com.google.code.gson:gson:2.2.4'
