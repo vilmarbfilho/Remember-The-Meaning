@@ -3,6 +3,7 @@ package br.com.vilmar.rememberthemeaning.data.repository
 import br.com.vilmar.rememberthemeaning.data.database.model.Language
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import com.nhaarman.mockito_kotlin.whenever
+import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
@@ -21,15 +22,17 @@ class VocabularyRepositoryTest {
 
     @Test
     fun getAll_success() {
-        whenever(vocabularyDataSource.getAll()).thenReturn(createVocabularyList())
+        val fakeValues = createVocabularyList()
 
-//        Truth.assert_()
-//                .that()
-//                .isEqualTo(createVocabularyList())
+        whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
 
-        vocabularyRepository.getAll()
-                .test()
-                .assertComplete()
+        val testObserver = vocabularyRepository.getAll().test()
+
+        testObserver.awaitTerminalEvent()
+
+        testObserver
+                .assertNoErrors()
+                .assertValue(fakeValues)
     }
 
     private fun createVocabularyList(): List<Vocabulary> {
