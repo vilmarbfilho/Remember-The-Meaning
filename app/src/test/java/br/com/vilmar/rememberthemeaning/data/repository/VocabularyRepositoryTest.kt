@@ -2,6 +2,7 @@ package br.com.vilmar.rememberthemeaning.data.repository
 
 import br.com.vilmar.rememberthemeaning.data.database.model.Language
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
+import com.google.common.truth.Truth
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.observers.TestObserver
 import org.junit.Test
@@ -26,13 +27,11 @@ class VocabularyRepositoryTest {
 
         whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
 
-        val testObserver = vocabularyRepository.getAll().test()
+        val vocabularyList = vocabularyRepository.getAll().blockingGet()
 
-        testObserver.awaitTerminalEvent()
-
-        testObserver
-                .assertNoErrors()
-                .assertValue(fakeValues)
+        Truth
+                .assertThat(vocabularyList)
+                .containsAllIn(fakeValues)
     }
 
     private fun createVocabularyList(): List<Vocabulary> {
