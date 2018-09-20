@@ -1,10 +1,8 @@
 package br.com.vilmar.rememberthemeaning.data.repository
 
-import br.com.vilmar.rememberthemeaning.data.database.model.Language
-import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
+import br.com.vilmar.rememberthemeaning.common.BaseTest
 import com.google.common.truth.Truth
 import com.nhaarman.mockito_kotlin.whenever
-import io.reactivex.observers.TestObserver
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
@@ -13,7 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner
 
 
 @RunWith(MockitoJUnitRunner::class)
-class VocabularyRepositoryTest {
+class VocabularyRepositoryTest: BaseTest() {
 
     @Mock
     lateinit var vocabularyDataSource: VocabularyDataSource
@@ -32,20 +30,6 @@ class VocabularyRepositoryTest {
         Truth
                 .assertThat(vocabularyList)
                 .containsAllIn(fakeValues)
-    }
-
-    private fun createVocabularyList(): List<Vocabulary> {
-        val list = mutableListOf<Vocabulary>()
-
-        val language = Language("EN")
-
-        list.add(Vocabulary(true, "Word", "Meaning", 1000L, language))
-        list.add(Vocabulary(true, "Girl", "Menina", 1000L, language))
-        list.add(Vocabulary(true, "Boy", "Menino", 1000L, language))
-        list.add(Vocabulary(true, "Boat", "Barco", 1000L, language))
-        list.add(Vocabulary(true, "House", "Casa", 1000L, language))
-
-        return list
     }
 
 }
