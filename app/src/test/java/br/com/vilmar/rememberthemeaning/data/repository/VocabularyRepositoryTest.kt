@@ -22,7 +22,7 @@ class VocabularyRepositoryTest {
     lateinit var vocabularyRepository: VocabularyRepository
 
     @Test
-    fun getAll_success() {
+    fun getAll_getVocabulary_showListSuccess() {
         val fakeValues = createVocabularyList()
 
         whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
