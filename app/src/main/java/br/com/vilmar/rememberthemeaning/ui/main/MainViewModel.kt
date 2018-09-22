@@ -14,8 +14,8 @@ class MainViewModel @Inject constructor(private val vocabularyRepository: Vocabu
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     val uiEventLiveData = SingleLiveEvent<Int>()
-    val vocabulary = SingleLiveEvent<List<Vocabulary>>()
-    val vocabularyEventLiveData = SingleLiveEvent<Vocabulary>()
+    val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
+    val wordEventLiveData = SingleLiveEvent<Vocabulary>()
 
     private lateinit var vocabularyList: List<Vocabulary>
 
@@ -25,16 +25,16 @@ class MainViewModel @Inject constructor(private val vocabularyRepository: Vocabu
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     vocabularyList = it
-                    vocabulary.value = it
+                    vocabularyListLiveData.value = it
                 })
     }
 
-    fun startNewWordActivity() {
+    fun openNewWordActivity() {
         uiEventLiveData.value = OPEN_NEW_WORD_SCREEN
     }
 
     fun openWordActivity(pos: Int) {
-        vocabularyEventLiveData.value = vocabularyList[pos]
+        wordEventLiveData.value = vocabularyList[pos]
     }
 
     override fun onCleared() {

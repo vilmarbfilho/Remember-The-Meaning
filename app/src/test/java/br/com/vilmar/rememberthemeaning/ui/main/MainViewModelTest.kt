@@ -41,13 +41,41 @@ class MainViewModelTest: BaseTest() {
 
         whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
 
-        val vocabularyLiveData = viewModel.vocabulary.testObserver()
+        val vocabularyListLiveData = viewModel.vocabularyListLiveData.testObserver()
 
         viewModel.getVocabulary()
 
         Truth.assert_()
-                .that(vocabularyLiveData.getValue())
+                .that(vocabularyListLiveData.getValue())
                 .isEqualTo(fakeValues)
     }
+
+    @Test
+    fun `on click plus button open new word activity`() {
+        val uiEventLiveData = viewModel.uiEventLiveData.testObserver()
+
+        viewModel.openNewWordActivity()
+
+        Truth.assert_()
+                .that(uiEventLiveData.getValue())
+                .isEqualTo(MainViewModel.OPEN_NEW_WORD_SCREEN)
+    }
+
+    @Test
+    fun `on click in card open word activity`() {
+        val position = 1
+        val fakeValues = createVocabularyList()
+        val wordEventLiveData = viewModel.wordEventLiveData.testObserver()
+
+        whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
+
+        viewModel.getVocabulary()
+        viewModel.openWordActivity(position)
+
+        Truth.assert_()
+                .that(wordEventLiveData.getValue())
+                .isEqualTo(fakeValues[position])
+    }
+
 
 }
