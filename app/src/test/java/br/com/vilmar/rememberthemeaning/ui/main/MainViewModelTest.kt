@@ -46,7 +46,7 @@ class MainViewModelTest: BaseTest() {
         viewModel.getVocabulary()
 
         Truth.assert_()
-                .that(vocabularyLiveData.observedValues[0])
+                .that(vocabularyLiveData.getValue())
                 .isEqualTo(fakeValues)
     }
 
