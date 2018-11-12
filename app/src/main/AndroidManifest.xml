@@ -1,12 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vilmar.rememberthemeaning.app"
-    android:installLocation="auto"
-    android:versionCode="3"
-    android:versionName="2.0">
-
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="19" />
+    package="com.vilmar.rememberthemeaning.app" >
 
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
