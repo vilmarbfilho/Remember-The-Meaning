@@ -4,8 +4,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="size_container_image">100dp</dimen>
+    <dimen name="size_image">108dp</dimen>
 
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_10dp">10dp</dimen>
 
     <dimen name="margin_5dp">5dp</dimen>
