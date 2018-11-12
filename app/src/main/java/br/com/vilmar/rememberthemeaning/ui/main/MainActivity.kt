@@ -53,7 +53,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun observerVocabularyAdapter() {
-        viewModel.vocabulary.observe(this, Observer {
+        viewModel.vocabularyListLiveData.observe(this, Observer {
             val vocabulary = it ?: emptyList()
             val adapter = VocabularyAdapter(vocabulary)
 
@@ -80,7 +80,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun observerEditVocabulary() {
-        viewModel.vocabularyEventLiveData.observe(this, Observer {
+        viewModel.wordEventLiveData.observe(this, Observer {
             val intent = Intent(this, CadastreEditActivity::class.java)
 
             intent.putExtra(Vocabulary.WORDBUNDLE, it)

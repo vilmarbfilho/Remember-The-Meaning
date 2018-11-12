@@ -5,10 +5,12 @@ import android.arch.lifecycle.Observer
 
 class TestObserver<T> : Observer<T> {
 
-    val observedValues = mutableListOf<T?>()
+    private var observedValue: T? = null
 
     override fun onChanged(value: T?) {
-        observedValues.add(value)
+        observedValue = value
     }
+
+    fun getValue(): T? = observedValue
 
 }

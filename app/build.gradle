@@ -115,6 +115,7 @@ dependencies {
     testImplementation "com.google.truth:truth:0.42"
     testImplementation 'org.mockito:mockito-all:1.10.19'
     testImplementation "com.nhaarman:mockito-kotlin-kt1.1:${nhaarmanMockito}"
+    testImplementation "android.arch.core:core-testing:$lifecycle_version"
 
     androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.2.1'
     androidTestImplementation "org.mockito:mockito-android:${mockitoVersion}"
