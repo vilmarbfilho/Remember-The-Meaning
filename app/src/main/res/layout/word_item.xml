@@ -46,16 +46,6 @@
                 app:layout_constraintTop_toBottomOf="@id/photo">
 
                 <TextView
-                    android:id="@+id/tv_language"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/padding_2dp"
-                    android:text="@{vocabulary.language.name}"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.RTM.Language"
-                    tools:text="@tools:sample/lorem" />
-
-                <TextView
                     android:id="@+id/tv_word_source"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -73,6 +63,16 @@
                     android:text="@{vocabulary.meaning}"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.RTM.Word.Translate"
+                    tools:text="@tools:sample/lorem" />
+
+                <TextView
+                    android:id="@+id/tv_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_2dp"
+                    android:text="@{vocabulary.language.name}"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.RTM.Language"
                     tools:text="@tools:sample/lorem" />
 
             </LinearLayout>
