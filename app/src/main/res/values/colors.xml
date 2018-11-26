@@ -36,6 +36,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="textColorPrimary">#c7c6c6</color>
+
     <!-- END - Refactor APP -->
 
 </resources>
