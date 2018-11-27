@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="br.com.vilmar.rememberthemeaning.ui.main.MainViewModel" />
+            type="br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel" />
 
     </data>
 

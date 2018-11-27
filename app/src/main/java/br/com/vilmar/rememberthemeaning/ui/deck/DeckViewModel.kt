@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.ui.main
+package br.com.vilmar.rememberthemeaning.ui.deck
 
 import android.arch.lifecycle.ViewModel
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
@@ -9,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(private val vocabularyRepository: VocabularyRepository): ViewModel() {
+class DeckViewModel @Inject constructor(private val vocabularyRepository: VocabularyRepository): ViewModel() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 

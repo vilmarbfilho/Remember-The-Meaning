@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.ui.main
+package br.com.vilmar.rememberthemeaning.ui.deck
 
 import android.arch.lifecycle.Observer
 import android.content.Intent
@@ -9,18 +9,18 @@ import android.support.v7.widget.GridLayoutManager
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
-import br.com.vilmar.rememberthemeaning.ui.main.MainViewModel.Companion.OPEN_NEW_WORD_SCREEN
+import br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel.Companion.OPEN_NEW_WORD_SCREEN
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 
-class MainActivity: AppCompatActivity() {
+class DeckFragment: AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
     @Inject
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: DeckViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -38,7 +38,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     private fun initBinding() {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.deck_fragment)
 
         binding.viewModel = viewModel
     }

@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.ui.main
+package br.com.vilmar.rememberthemeaning.ui.deck
 
 import android.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.vilmar.rememberthemeaning.common.BaseTest
@@ -16,7 +16,7 @@ import org.mockito.Mock
 import org.mockito.runners.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class MainViewModelTest: BaseTest() {
+class DeckViewModelTest: BaseTest() {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()
@@ -27,11 +27,11 @@ class MainViewModelTest: BaseTest() {
     @Mock
     lateinit var vocabularyDataSource: VocabularyDataSource
 
-    lateinit var viewModel: MainViewModel
+    lateinit var viewModel: DeckViewModel
 
     @Before
     fun setUp() {
-        viewModel = MainViewModel(VocabularyRepository(vocabularyDataSource))
+        viewModel = DeckViewModel(VocabularyRepository(vocabularyDataSource))
     }
 
     @Test
@@ -58,7 +58,7 @@ class MainViewModelTest: BaseTest() {
 
         Truth.assert_()
                 .that(uiEventLiveData.getValue())
-                .isEqualTo(MainViewModel.OPEN_NEW_WORD_SCREEN)
+                .isEqualTo(DeckViewModel.OPEN_NEW_WORD_SCREEN)
     }
 
     @Test
