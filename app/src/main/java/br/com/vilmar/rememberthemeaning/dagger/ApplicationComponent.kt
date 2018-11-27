@@ -3,13 +3,15 @@ package br.com.vilmar.rememberthemeaning.dagger
 import br.com.vilmar.rememberthemeaning.RememberTheMeaningApplication
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjectionModule
+import dagger.android.support.AndroidSupportInjectionModule
 
 @Component(modules = arrayOf(
         AppModule::class,
-        AndroidInjectionModule::class,
+        AndroidSupportInjectionModule::class,
+        ActivitiesModule::class,
         DaoModule::class,
-        DataRepositoryModule::class
+        DataRepositoryModule::class,
+        FragmentsModule::class
 ))
 interface ApplicationComponent {
 

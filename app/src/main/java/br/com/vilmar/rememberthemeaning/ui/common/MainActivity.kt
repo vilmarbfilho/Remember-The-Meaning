@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import br.com.vilmar.rememberthemeaning.ui.NavigationHost
 import br.com.vilmar.rememberthemeaning.ui.deck.DeckFragment
 import com.vilmar.rememberthemeaning.app.R
+import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -14,10 +15,10 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity(), NavigationHost, HasSupportFragmentInjector {
 
     @Inject
-    lateinit var dispatchingAndroidInjector : DispatchingAndroidInjector<Fragment>
+    lateinit var fragmentDispatchingAndroidInjector : DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //AndroidInjection.inject(this)
+        AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
 
@@ -41,6 +42,6 @@ class MainActivity : AppCompatActivity(), NavigationHost, HasSupportFragmentInje
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return dispatchingAndroidInjector
+        return fragmentDispatchingAndroidInjector
     }
 }
