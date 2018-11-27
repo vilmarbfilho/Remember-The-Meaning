@@ -1,34 +1,51 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
 import android.arch.lifecycle.Observer
+import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
+import br.com.vilmar.rememberthemeaning.ui.common.BaseFragment
 import br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel.Companion.OPEN_NEW_WORD_SCREEN
 import com.vilmar.rememberthemeaning.app.R
-import com.vilmar.rememberthemeaning.app.databinding.ActivityMainBinding
-import dagger.android.AndroidInjection
+import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment: AppCompatActivity() {
+class DeckFragment: BaseFragment() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var fragmentBinding : DeckFragmentBinding
 
     @Inject
     lateinit var viewModel: DeckViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
+    override fun onAttach(context: Context?) {
+        AndroidSupportInjection.inject(this)
 
-        initBinding()
+        super.onAttach(context)
+    }
 
-        setupToolbar()
+    override fun fragmentName(): String {
+        return "DeckFragment"
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        fragmentBinding = DataBindingUtil.inflate(inflater, R.layout.deck_fragment, container, false)
+
+        fragmentBinding.viewModel = viewModel
+
+        return fragmentBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         setupRecyclerView()
 
@@ -37,19 +54,8 @@ class DeckFragment: AppCompatActivity() {
         observerUIEvents()
     }
 
-    private fun initBinding() {
-        binding = DataBindingUtil.setContentView(this, R.layout.deck_fragment)
-
-        binding.viewModel = viewModel
-    }
-
-    private fun setupToolbar() {
-        setSupportActionBar(binding.includeToolbar?.toolbar)
-        supportActionBar?.title = getString(R.string.title_main)
-    }
-
     private fun setupRecyclerView() {
-        binding.recyclerView.layoutManager = GridLayoutManager(this, SPAN_COUNT)
+        fragmentBinding.recyclerView.layoutManager = GridLayoutManager(activity, SPAN_COUNT)
     }
 
     private fun observerVocabularyAdapter() {
@@ -57,7 +63,7 @@ class DeckFragment: AppCompatActivity() {
             val vocabulary = it ?: emptyList()
             val adapter = VocabularyAdapter(vocabulary)
 
-            binding.recyclerView.adapter = adapter
+            fragmentBinding.recyclerView.adapter = adapter
 
             adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
                 override fun onClick(position: Int) {
@@ -76,12 +82,12 @@ class DeckFragment: AppCompatActivity() {
     }
 
     private fun openNewWordActivity() {
-        startActivity(Intent(this, HomeActivity::class.java))
+        startActivity(Intent(activity, HomeActivity::class.java))
     }
 
     private fun observerEditVocabulary() {
         viewModel.wordEventLiveData.observe(this, Observer {
-            val intent = Intent(this, CadastreEditActivity::class.java)
+            val intent = Intent(activity, CadastreEditActivity::class.java)
 
             intent.putExtra(Vocabulary.WORDBUNDLE, it)
 
@@ -97,6 +103,10 @@ class DeckFragment: AppCompatActivity() {
     companion object {
 
         const val SPAN_COUNT = 2
+
+        fun newInstance() : DeckFragment {
+            return DeckFragment()
+        }
 
     }
 
