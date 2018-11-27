@@ -8,7 +8,6 @@ import dagger.android.AndroidInjectionModule
 @Component(modules = arrayOf(
         AppModule::class,
         AndroidInjectionModule::class,
-        ActivitiesModule::class,
         DaoModule::class,
         DataRepositoryModule::class
 ))
