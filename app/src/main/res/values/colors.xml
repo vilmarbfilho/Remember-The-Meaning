@@ -40,7 +40,7 @@
 
     <color name="toolbarIconColor">@color/textColorPrimary</color>
 
-    <color name="divider">@color/textColorPrimary</color>
+    <color name="divider">#C3C3C3</color>
 
     <!-- END - Refactor APP -->
 
