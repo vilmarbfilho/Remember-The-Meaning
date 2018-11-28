@@ -36,7 +36,7 @@
     <color name="colorPrimaryDark">#CCCCCC</color>
     <color name="colorAccent">#F9AA33</color>
 
-    <color name="textColorPrimary">#c7c6c6</color>
+    <color name="textColorPrimary">#403F3F</color>
 
     <color name="toolbarIconColor">@color/textColorPrimary</color>
 
