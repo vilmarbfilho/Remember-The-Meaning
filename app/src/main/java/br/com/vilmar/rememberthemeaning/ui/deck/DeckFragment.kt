@@ -51,6 +51,7 @@ class DeckFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupActionBar(fragmentBinding.includeToolbar as Toolbar)
+        setupTitleActionBar(getString(R.string.title_deck))
 
         setupRecyclerView()
 

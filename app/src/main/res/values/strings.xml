@@ -111,7 +111,7 @@
     <string name="empty_card">There are no more words\n to be remembered.</string>
 
     <!-- Title Screen -->
-    <string name="title_main">Deck</string>
+    <string name="title_deck">Deck</string>
 
     <!-- menu -->
     <string name="rtm_menu_search">Search</string>
