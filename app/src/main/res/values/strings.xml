@@ -116,4 +116,9 @@
     <!-- menu -->
     <string name="rtm_menu_search">Search</string>
 
+    <!-- navigation view -->
+    <string name="nav_language">Language</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_feedback">Feedback</string>
+
 </resources>

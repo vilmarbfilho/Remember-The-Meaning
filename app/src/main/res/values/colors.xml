@@ -40,6 +40,8 @@
 
     <color name="toolbarIconColor">@color/textColorPrimary</color>
 
+    <color name="divider">@color/textColorPrimary</color>
+
     <!-- END - Refactor APP -->
 
 </resources>

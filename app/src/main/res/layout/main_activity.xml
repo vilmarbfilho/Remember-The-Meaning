@@ -1,20 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <fragment
-        android:name="br.com.vilmar.rememberthemeaning.ui.deck.DeckFragment"
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true" />
+        tools:openDrawer="left">
 
-</android.support.v4.widget.DrawerLayout>
+        <fragment
+            android:name="br.com.vilmar.rememberthemeaning.ui.deck.DeckFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/header_navigation"
+            app:menu="@menu/menu_navigation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_divider"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:id="@+id/footer_item_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_item_height"
+                    android:drawableLeft="@drawable/rtm_settings"
+                    android:drawablePadding="@dimen/padding_10dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/padding_16dp"
+                    android:text="@string/nav_settings"
+                    android:textColor="@color/textColorPrimary" />
+
+                <TextView
+                    android:id="@+id/footer_item_feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/footer_item_height"
+                    android:drawableLeft="@drawable/rtm_feedback"
+                    android:drawablePadding="@dimen/padding_10dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/padding_16dp"
+                    android:text="@string/nav_feedback"
+                    android:textColor="@color/textColorPrimary" />
+
+            </LinearLayout>
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</layout>
