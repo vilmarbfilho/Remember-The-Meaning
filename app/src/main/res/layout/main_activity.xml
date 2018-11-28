@@ -12,7 +12,8 @@
         <fragment
             android:name="br.com.vilmar.rememberthemeaning.ui.deck.DeckFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            tools:layout="@layout/deck_fragment" />
 
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
@@ -23,7 +24,7 @@
             app:headerLayout="@layout/header_navigation"
             app:menu="@menu/menu_navigation">
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -31,9 +32,18 @@
                 android:orientation="vertical">
 
                 <View
+                    android:id="@+id/footer_divider"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/footer_divider"
-                    android:background="@color/divider" />
+                    android:background="@color/divider"
+                    app:layout_constraintBottom_toTopOf="@id/footer_item_settings"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="" />
 
                 <TextView
                     android:id="@+id/footer_item_settings"
@@ -44,7 +54,10 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/padding_16dp"
                     android:text="@string/nav_settings"
-                    android:textColor="@color/textColorPrimary" />
+                    android:textColor="@color/textColorPrimary"
+                    app:layout_constraintBottom_toTopOf="@id/footer_item_feedback"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
                 <TextView
                     android:id="@+id/footer_item_feedback"
@@ -55,9 +68,12 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/padding_16dp"
                     android:text="@string/nav_feedback"
-                    android:textColor="@color/textColorPrimary" />
+                    android:textColor="@color/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
-            </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
 
         </android.support.design.widget.NavigationView>
 
