@@ -16,9 +16,16 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainActivity">
 
-        <include
-            android:id="@+id/include_toolbar"
-            layout="@layout/toolbar" />
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/include_toolbar"
+                layout="@layout/toolbar_white_include" />
+
+        </android.support.design.widget.AppBarLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_new_word"
@@ -38,7 +45,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/include_toolbar" />
+            app:layout_constraintTop_toBottomOf="@id/app_bar" />
 
     </android.support.constraint.ConstraintLayout>
 

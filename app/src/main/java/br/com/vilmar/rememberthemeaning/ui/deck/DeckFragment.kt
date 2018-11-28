@@ -6,9 +6,8 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.widget.Toolbar
+import android.view.*
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
@@ -35,6 +34,11 @@ class DeckFragment: BaseFragment() {
         return "DeckFragment"
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentBinding = DataBindingUtil.inflate(inflater, R.layout.deck_fragment, container, false)
 
@@ -46,11 +50,18 @@ class DeckFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupActionBar(fragmentBinding.includeToolbar as Toolbar)
+
         setupRecyclerView()
 
         observerVocabularyAdapter()
         observerEditVocabulary()
         observerUIEvents()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
+        menuInflater!!.inflate(R.menu.toolbar_menu_deck, menu)
+        super.onCreateOptionsMenu(menu, menuInflater)
     }
 
     private fun setupRecyclerView() {
