@@ -5,20 +5,21 @@ import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.Toolbar
 import android.view.*
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
-import br.com.vilmar.rememberthemeaning.ui.common.BaseFragment
 import br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel.Companion.OPEN_NEW_WORD_SCREEN
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment: BaseFragment() {
+class DeckFragment: Fragment() {
 
     private lateinit var fragmentBinding : DeckFragmentBinding
 
@@ -28,10 +29,6 @@ class DeckFragment: BaseFragment() {
     override fun onAttach(context: Context?) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
-    }
-
-    override fun fragmentName(): String {
-        return "DeckFragment"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +47,7 @@ class DeckFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupActionBar(fragmentBinding.includeToolbar as Toolbar)
-        setupTitleActionBar(getString(R.string.title_deck))
-
+        setupToolbar()
         setupRecyclerView()
 
         observerVocabularyAdapter()
@@ -63,6 +58,13 @@ class DeckFragment: BaseFragment() {
     override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
         menuInflater!!.inflate(R.menu.toolbar_menu_deck, menu)
         super.onCreateOptionsMenu(menu, menuInflater)
+    }
+
+    private fun setupToolbar() {
+        val toolbar = fragmentBinding.includeToolbar as Toolbar
+
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_deck)
     }
 
     private fun setupRecyclerView() {
@@ -114,10 +116,6 @@ class DeckFragment: BaseFragment() {
     companion object {
 
         const val SPAN_COUNT = 2
-
-        fun newInstance() : DeckFragment {
-            return DeckFragment()
-        }
 
     }
 
