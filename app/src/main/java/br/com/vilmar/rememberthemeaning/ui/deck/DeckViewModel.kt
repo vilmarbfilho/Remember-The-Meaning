@@ -17,21 +17,22 @@ class DeckViewModel @Inject constructor(
         private val postExecutionThread: PostExecutionThread): ViewModel() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
+    private lateinit var vocabularyList: List<Vocabulary>
 
     val uiEventLiveData = SingleLiveEvent<Int>()
     val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
     val wordEventLiveData = SingleLiveEvent<Vocabulary>()
 
-    private lateinit var vocabularyList: List<Vocabulary>
+    private val consumeInfo = { list : List<Vocabulary> ->
+        vocabularyList = list
+        vocabularyListLiveData.value = list
+    }
 
     fun getVocabulary() {
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.getScheduler())
-                .subscribe {
-                    vocabularyList = it
-                    vocabularyListLiveData.value = it
-                })
+                .subscribe(consumeInfo))
     }
 
     fun search(word : String) {
@@ -39,10 +40,7 @@ class DeckViewModel @Inject constructor(
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.getScheduler())
                 .debounce(250, TimeUnit.MILLISECONDS)
-                .subscribe{
-                    vocabularyList = it
-                    vocabularyListLiveData.value = it
-                })
+                .subscribe(consumeInfo))
     }
 
     fun openNewWordActivity() {
