@@ -6,6 +6,8 @@ import br.com.vilmar.rememberthemeaning.common.RxSchedulerRule
 import br.com.vilmar.rememberthemeaning.common.testObserver
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyDataSource
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
+import br.com.vilmar.rememberthemeaning.executor.JobExecutor
+import br.com.vilmar.rememberthemeaning.executor.UIThread
 import com.google.common.truth.Truth
 import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Before
@@ -31,7 +33,7 @@ class DeckViewModelTest: BaseTest() {
 
     @Before
     fun setUp() {
-        viewModel = DeckViewModel(VocabularyRepository(vocabularyDataSource))
+        viewModel = DeckViewModel(VocabularyRepository(vocabularyDataSource), JobExecutor(), UIThread())
     }
 
     @Test
