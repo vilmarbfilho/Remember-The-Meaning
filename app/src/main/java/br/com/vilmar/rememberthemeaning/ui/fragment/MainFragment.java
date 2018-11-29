@@ -104,7 +104,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
         if(!vocabularyList.isEmpty())
             vocabularyList.clear();
 
-        vocabularyList.addAll(vocabularyDao.searchWords(word));
+        vocabularyList.addAll(vocabularyDao.search(word));
         vocabularyAdapter.notifyDataSetChanged();
     }
 

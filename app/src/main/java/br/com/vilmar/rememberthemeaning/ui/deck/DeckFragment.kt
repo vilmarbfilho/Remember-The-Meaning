@@ -8,7 +8,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.SearchView
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.*
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
@@ -57,7 +59,25 @@ class DeckFragment: Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
         menuInflater!!.inflate(R.menu.toolbar_menu_deck, menu)
+
+        handleSearchView(menu)
+
         super.onCreateOptionsMenu(menu, menuInflater)
+    }
+
+    private fun handleSearchView(menu : Menu?) {
+        val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextChange(text: String): Boolean {
+                viewModel.search(text)
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+
+                return false
+            }
+        })
     }
 
     private fun setupToolbar() {

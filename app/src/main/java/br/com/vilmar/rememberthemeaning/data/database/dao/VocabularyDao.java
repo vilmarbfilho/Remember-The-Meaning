@@ -149,7 +149,8 @@ public class VocabularyDao implements VocabularyDataSource {
 //        return null;
 //    }
 
-    public List<Vocabulary> searchWords(String word) {
+    @Override
+    public List<Vocabulary> search(String word) {
         //SELECT * FROM words WHERE source LIKE '%word%' OR result LIKE '%word%'
         queryBuilder = vocabularyDao.queryBuilder();
         try {

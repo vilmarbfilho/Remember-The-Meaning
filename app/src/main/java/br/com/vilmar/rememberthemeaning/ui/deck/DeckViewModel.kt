@@ -7,6 +7,7 @@ import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class DeckViewModel @Inject constructor(private val vocabularyRepository: VocabularyRepository): ViewModel() {
@@ -24,6 +25,17 @@ class DeckViewModel @Inject constructor(private val vocabularyRepository: Vocabu
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
+                    vocabularyList = it
+                    vocabularyListLiveData.value = it
+                })
+    }
+
+    fun search(word : String) {
+        compositeDisposable.add(vocabularyRepository.search(word)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .debounce(250, TimeUnit.MILLISECONDS)
+                .subscribe{
                     vocabularyList = it
                     vocabularyListLiveData.value = it
                 })
