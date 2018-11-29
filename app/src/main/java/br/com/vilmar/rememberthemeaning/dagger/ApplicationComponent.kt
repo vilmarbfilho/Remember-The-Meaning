@@ -11,7 +11,8 @@ import dagger.android.support.AndroidSupportInjectionModule
         ActivitiesModule::class,
         DaoModule::class,
         DataRepositoryModule::class,
-        FragmentsModule::class
+        FragmentsModule::class,
+        ThreadModule::class
 ))
 interface ApplicationComponent {
 
