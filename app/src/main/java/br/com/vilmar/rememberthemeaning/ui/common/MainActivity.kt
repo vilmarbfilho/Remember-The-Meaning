@@ -57,11 +57,11 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
             true
         }
 
-        binding.footerItemSettings.setOnClickListener {
+        binding.textItemSettings.setOnClickListener {
             openSettings()
         }
 
-        binding.footerItemFeedback.setOnClickListener {
+        binding.textItemFeedback.setOnClickListener {
             openFeedback()
         }
     }

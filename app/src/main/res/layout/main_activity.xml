@@ -36,41 +36,52 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/footer_divider"
                     android:background="@color/divider"
-                    app:layout_constraintBottom_toTopOf="@id/footer_item_settings"
+                    app:layout_constraintBottom_toTopOf="@id/text_item_settings"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent" />
 
                 <ImageView
+                    android:id="@+id/image_item_settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="" />
+                    android:layout_marginLeft="@dimen/margin_16dp"
+                    app:layout_constraintBottom_toTopOf="@id/text_item_feedback"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/footer_divider"
+                    app:srcCompat="@drawable/rtm_settings" />
 
                 <TextView
-                    android:id="@+id/footer_item_settings"
-                    android:layout_width="match_parent"
+                    android:id="@+id/text_item_settings"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/footer_item_height"
-                    android:drawableLeft="@drawable/rtm_settings"
-                    android:drawablePadding="@dimen/padding_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/padding_16dp"
                     android:text="@string/nav_settings"
                     android:textColor="@color/textColorPrimary"
-                    app:layout_constraintBottom_toTopOf="@id/footer_item_feedback"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/text_item_feedback"
+                    app:layout_constraintLeft_toRightOf="@id/image_item_settings"
                     app:layout_constraintRight_toRightOf="parent" />
 
+                <ImageView
+                    android:id="@+id/image_item_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_item_settings"
+                    app:srcCompat="@drawable/rtm_feedback" />
+
                 <TextView
-                    android:id="@+id/footer_item_feedback"
-                    android:layout_width="match_parent"
+                    android:id="@+id/text_item_feedback"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/footer_item_height"
-                    android:drawableLeft="@drawable/rtm_feedback"
-                    android:drawablePadding="@dimen/padding_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/padding_16dp"
                     android:text="@string/nav_feedback"
                     android:textColor="@color/textColorPrimary"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/image_item_feedback"
                     app:layout_constraintRight_toRightOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
