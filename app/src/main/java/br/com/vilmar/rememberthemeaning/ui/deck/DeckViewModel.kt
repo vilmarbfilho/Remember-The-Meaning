@@ -14,9 +14,9 @@ import javax.inject.Inject
 class DeckViewModel @Inject constructor(
         private val vocabularyRepository: VocabularyRepository,
         private val threadExecutor: ThreadExecutor,
-        private val postExecutionThread: PostExecutionThread): ViewModel() {
+        private val postExecutionThread: PostExecutionThread,
+        private val compositeDisposable: CompositeDisposable): ViewModel() {
 
-    private val compositeDisposable: CompositeDisposable = CompositeDisposable()
     private lateinit var vocabularyList: List<Vocabulary>
 
     val uiEventLiveData = SingleLiveEvent<Int>()
