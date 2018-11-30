@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.vilmar.rememberthemeaning.ui.common.MainViewModel" />
+
+    </data>
+
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
@@ -58,6 +66,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/nav_settings"
                     android:textColor="@color/textColorPrimary"
+                    android:onClick="@{() -> viewModel.openSettings()}"
                     app:layout_constraintBottom_toTopOf="@id/text_item_feedback"
                     app:layout_constraintLeft_toRightOf="@id/image_item_settings"
                     app:layout_constraintRight_toRightOf="parent" />
@@ -80,6 +89,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/nav_feedback"
                     android:textColor="@color/textColorPrimary"
+                    android:onClick="@{() -> viewModel.openFeedback()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toRightOf="@id/image_item_feedback"
                     app:layout_constraintRight_toRightOf="parent" />

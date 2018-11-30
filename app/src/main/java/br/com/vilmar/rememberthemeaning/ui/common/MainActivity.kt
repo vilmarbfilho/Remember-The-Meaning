@@ -1,5 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.common
 
+import android.arch.lifecycle.Observer
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -14,6 +15,8 @@ import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 import android.support.v4.view.GravityCompat
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
+import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_FEEDBACK_SCREEN
+import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_SETTINGS_SCREEN
 import com.vilmar.rememberthemeaning.app.databinding.MainActivityBinding
 
 
@@ -21,6 +24,9 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentDispatchingAndroidInjector : DispatchingAndroidInjector<Fragment>
+
+    @Inject
+    lateinit var viewModel: MainViewModel
 
     private lateinit var binding: MainActivityBinding
 
@@ -31,7 +37,10 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
 
+        binding.viewModel = viewModel
+
         setupNavigationView()
+        observerUIEvents()
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
@@ -56,14 +65,15 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
             true
         }
+    }
 
-        binding.textItemSettings.setOnClickListener {
-            openSettings()
-        }
-
-        binding.textItemFeedback.setOnClickListener {
-            openFeedback()
-        }
+    private fun observerUIEvents() {
+        viewModel.uiEventLiveData.observe(this, Observer {
+            when(it) {
+                OPEN_SETTINGS_SCREEN -> openSettings()
+                OPEN_FEEDBACK_SCREEN -> openFeedback()
+            }
+        })
     }
 
     private fun openSettings() {
