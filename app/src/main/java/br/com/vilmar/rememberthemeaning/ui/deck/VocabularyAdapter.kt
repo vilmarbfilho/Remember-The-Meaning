@@ -6,10 +6,12 @@ import android.view.ViewGroup
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import com.vilmar.rememberthemeaning.app.R
 
-class VocabularyAdapter(var vocabularyList: List<Vocabulary>):
-        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var vocabularyList: List<Vocabulary> = emptyList()
 
     lateinit var listener: OnItemClickVocabularyAdapter
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return VocabularyViewHolder(LayoutInflater
@@ -31,6 +33,11 @@ class VocabularyAdapter(var vocabularyList: List<Vocabulary>):
     }
 
     override fun getItemCount() = vocabularyList.size
+
+    fun setData(data: List<Vocabulary>) {
+        vocabularyList = data
+        notifyDataSetChanged()
+    }
 
     fun setOnItemClickVocabularyAdapter(listener: OnItemClickVocabularyAdapter) {
         this.listener = listener

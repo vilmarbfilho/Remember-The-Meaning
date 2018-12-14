@@ -22,6 +22,8 @@ import javax.inject.Inject
 
 class DeckFragment: Fragment() {
 
+    private val adapter = VocabularyAdapter()
+
     private lateinit var fragmentBinding : DeckFragmentBinding
 
     @Inject
@@ -88,20 +90,20 @@ class DeckFragment: Fragment() {
 
     private fun setupRecyclerView() {
         fragmentBinding.recyclerView.layoutManager = GridLayoutManager(activity, SPAN_COUNT)
+
+        fragmentBinding.recyclerView.adapter = adapter
+
+        adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
+            override fun onClick(position: Int) {
+                viewModel.openWordActivity(position)
+            }
+        })
     }
 
     private fun observerVocabularyAdapter() {
         viewModel.vocabularyListLiveData.observe(this, Observer {
             val vocabulary = it ?: emptyList()
-            val adapter = VocabularyAdapter(vocabulary)
-
-            fragmentBinding.recyclerView.adapter = adapter
-
-            adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
-                override fun onClick(position: Int) {
-                    viewModel.openWordActivity(position)
-                }
-            })
+            adapter.setData(vocabulary)
         })
     }
 
