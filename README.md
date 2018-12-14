@@ -22,7 +22,10 @@ Check out the blog post here: http://vlabs.com.br/2017/10/21/remember-the-meanin
 </p>
 
 # Contributions
-Contributions for improve the app are welcome. 
+Contributions for improve the app are welcome.
+
+# References
+https://android.jlelse.eu/how-to-bind-a-list-of-items-to-a-recyclerview-with-android-data-binding-1bd08b4796b4
 
 # License
 Copyright 2017 vlabs
