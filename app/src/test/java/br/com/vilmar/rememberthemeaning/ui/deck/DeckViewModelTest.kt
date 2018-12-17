@@ -10,6 +10,7 @@ import br.com.vilmar.rememberthemeaning.executor.JobExecutor
 import br.com.vilmar.rememberthemeaning.executor.UIThread
 import com.google.common.truth.Truth
 import com.nhaarman.mockito_kotlin.whenever
+import io.reactivex.disposables.CompositeDisposable
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -33,7 +34,11 @@ class DeckViewModelTest: BaseTest() {
 
     @Before
     fun setUp() {
-        viewModel = DeckViewModel(VocabularyRepository(vocabularyDataSource), JobExecutor(), UIThread())
+        viewModel = DeckViewModel(
+                VocabularyRepository(vocabularyDataSource),
+                JobExecutor(),
+                UIThread(),
+                CompositeDisposable())
     }
 
     @Test
