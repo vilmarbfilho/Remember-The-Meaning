@@ -29,6 +29,7 @@ import io.fabric.sdk.android.Fabric;
 /**
  * Created by vilmar on 22/06/14.
  */
+@Deprecated
 public class HomeActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     private DrawerLayout drawerLayout;
