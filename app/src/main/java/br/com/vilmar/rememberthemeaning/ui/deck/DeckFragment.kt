@@ -103,7 +103,7 @@ class DeckFragment: Fragment() {
     private fun observerVocabularyAdapter() {
         viewModel.vocabularyListLiveData.observe(this, Observer {
             val vocabulary = it ?: emptyList()
-            adapter.setData(vocabulary)
+            adapter.loadData(vocabulary)
         })
     }
 

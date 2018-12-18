@@ -34,7 +34,7 @@ class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount() = vocabularyList.size
 
-    fun setData(data: List<Vocabulary>) {
+    fun loadData(data: List<Vocabulary>) {
         vocabularyList = data
         notifyDataSetChanged()
     }
