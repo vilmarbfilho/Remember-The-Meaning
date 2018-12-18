@@ -54,7 +54,6 @@ class DeckFragment: Fragment() {
         setupRecyclerView()
 
         observerVocabularyAdapter()
-        observerEditVocabulary()
         observerUIEvents()
     }
 
@@ -93,11 +92,9 @@ class DeckFragment: Fragment() {
 
         fragmentBinding.recyclerView.adapter = adapter
 
-        adapter.setOnItemClickVocabularyAdapter(object : VocabularyAdapter.OnItemClickVocabularyAdapter {
-            override fun onClick(position: Int) {
-                viewModel.openWordActivity(position)
-            }
-        })
+        adapter.onItemClickVocabulary {
+            openEditVocabulary(it)
+        }
     }
 
     private fun observerVocabularyAdapter() {
@@ -119,14 +116,12 @@ class DeckFragment: Fragment() {
         startActivity(Intent(activity, HomeActivity::class.java))
     }
 
-    private fun observerEditVocabulary() {
-        viewModel.wordEventLiveData.observe(this, Observer {
-            val intent = Intent(activity, CadastreEditActivity::class.java)
+    private fun openEditVocabulary(vocabulary: Vocabulary) {
+        val intent = Intent(activity, CadastreEditActivity::class.java)
 
-            intent.putExtra(Vocabulary.WORDBUNDLE, it)
+        intent.putExtra(Vocabulary.WORDBUNDLE, vocabulary)
 
-            startActivity(intent)
-        })
+        startActivity(intent)
     }
 
     override fun onResume() {

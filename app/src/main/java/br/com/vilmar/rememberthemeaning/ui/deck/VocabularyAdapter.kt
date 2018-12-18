@@ -8,9 +8,9 @@ import com.vilmar.rememberthemeaning.app.R
 
 class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var vocabularyList: List<Vocabulary> = emptyList()
+    private var vocabularyList : List<Vocabulary> = emptyList()
 
-    lateinit var listener: OnItemClickVocabularyAdapter
+    private lateinit var onItemClick : (Vocabulary) -> Unit
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -26,7 +26,7 @@ class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         binding?.vocabulary = vocabulary
 
         binding?.containerCard?.setOnClickListener {
-            listener.onClick(position)
+            this.onItemClick(vocabulary)
         }
 
         binding?.executePendingBindings()
@@ -39,13 +39,7 @@ class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    fun setOnItemClickVocabularyAdapter(listener: OnItemClickVocabularyAdapter) {
-        this.listener = listener
-    }
-
-    interface OnItemClickVocabularyAdapter {
-
-        fun onClick(position: Int)
-
+    fun onItemClickVocabulary(onItemClick : (Vocabulary) -> Unit) {
+        this.onItemClick = onItemClick
     }
 }

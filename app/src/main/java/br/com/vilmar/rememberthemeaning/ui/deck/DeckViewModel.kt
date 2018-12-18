@@ -17,14 +17,10 @@ class DeckViewModel @Inject constructor(
         private val postExecutionThread: PostExecutionThread,
         private val compositeDisposable: CompositeDisposable): ViewModel() {
 
-    private lateinit var vocabularyList: List<Vocabulary>
-
     val uiEventLiveData = SingleLiveEvent<Int>()
     val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
-    val wordEventLiveData = SingleLiveEvent<Vocabulary>()
 
     private val consumeInfo = { list : List<Vocabulary> ->
-        vocabularyList = list
         vocabularyListLiveData.value = list
     }
 
@@ -45,10 +41,6 @@ class DeckViewModel @Inject constructor(
 
     fun openNewWordActivity() {
         uiEventLiveData.value = OPEN_NEW_WORD_SCREEN
-    }
-
-    fun openWordActivity(pos: Int) {
-        wordEventLiveData.value = vocabularyList[pos]
     }
 
     override fun onCleared() {
