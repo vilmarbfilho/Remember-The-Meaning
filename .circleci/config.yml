@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Checkout the config folder of project
-          comand: svn checkout --username $USER_SVN --password PASSWORD_SVN $REPO_SVN config
+          command: svn checkout --username $USER_SVN --password PASSWORD_SVN $REPO_SVN config
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       #      - run:
