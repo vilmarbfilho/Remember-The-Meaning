@@ -3,11 +3,14 @@ jobs:
   build:
     working_directory: ~/rtm
     docker:
-      - image: circleci/android:api-25-alpha
+      - image: circleci/android:api-28-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      - run:
+          name: Checkout the config folder of project
+          command: git clone --single-branch --branch rtm_config $REPO_RTM_CONFIG config
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       #      - run:
