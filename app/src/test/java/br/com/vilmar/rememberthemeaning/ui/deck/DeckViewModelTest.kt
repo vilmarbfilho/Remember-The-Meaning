@@ -4,6 +4,7 @@ import android.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.vilmar.rememberthemeaning.common.BaseTest
 import br.com.vilmar.rememberthemeaning.common.RxSchedulerRule
 import br.com.vilmar.rememberthemeaning.common.testObserver
+import br.com.vilmar.rememberthemeaning.common.verify
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyDataSource
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.executor.JobExecutor
@@ -59,13 +60,9 @@ class DeckViewModelTest: BaseTest() {
 
     @Test
     fun `on click plus button open new word activity`() {
-        val uiEventLiveData = viewModel.uiEventLiveData.testObserver()
-
         viewModel.openNewWordActivity()
 
-        Truth.assert_()
-                .that(uiEventLiveData.getValue())
-                .isEqualTo(DeckViewModel.OPEN_NEW_WORD_SCREEN)
+        viewModel.newWordScreen.verify()
     }
 
     /* At the moment is not possible make this test

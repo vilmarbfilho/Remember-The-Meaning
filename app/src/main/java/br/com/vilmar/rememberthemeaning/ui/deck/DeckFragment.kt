@@ -10,11 +10,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
 import android.support.v7.widget.Toolbar
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
+import android.view.ViewGroup
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
-import br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel.Companion.OPEN_NEW_WORD_SCREEN
 import com.vilmar.rememberthemeaning.app.R
 import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
@@ -105,10 +108,8 @@ class DeckFragment: Fragment() {
     }
 
     private fun observerUIEvents() {
-        viewModel.uiEventLiveData.observe(this, Observer {
-            when(it) {
-                OPEN_NEW_WORD_SCREEN -> openNewWordActivity()
-            }
+        viewModel.newWordScreen.observe(this, Observer {
+            openNewWordActivity()
         })
     }
 
@@ -134,5 +135,4 @@ class DeckFragment: Fragment() {
         const val SPAN_COUNT = 2
 
     }
-
 }

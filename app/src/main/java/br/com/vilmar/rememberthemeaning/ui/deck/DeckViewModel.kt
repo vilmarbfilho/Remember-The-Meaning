@@ -1,6 +1,8 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
+import br.com.vilmar.rememberthemeaning.common.extensions.triggerEvent
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.executor.PostExecutionThread
@@ -17,7 +19,11 @@ class DeckViewModel @Inject constructor(
         private val postExecutionThread: PostExecutionThread,
         private val compositeDisposable: CompositeDisposable): ViewModel() {
 
-    val uiEventLiveData = SingleLiveEvent<Int>()
+
+    private val _newWordScreen = SingleLiveEvent<Unit>()
+
+    val newWordScreen: LiveData<Unit> get() = _newWordScreen
+
     val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
 
     private val consumeInfo = { list : List<Vocabulary> ->
@@ -40,18 +46,12 @@ class DeckViewModel @Inject constructor(
     }
 
     fun openNewWordActivity() {
-        uiEventLiveData.value = OPEN_NEW_WORD_SCREEN
+        _newWordScreen.triggerEvent()
     }
 
     override fun onCleared() {
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
-    }
-
-    companion object {
-
-        const val OPEN_NEW_WORD_SCREEN = 1
-
     }
 }
