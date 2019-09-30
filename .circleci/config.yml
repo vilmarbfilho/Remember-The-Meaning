@@ -28,7 +28,7 @@ jobs:
           command: ./gradlew lint test
       - run:
           name: Build debug APK
-          command: assembleDebug
+          command: ./gradlew assembleDebug
       - store_artifacts:
           path: app/build/reports
           destination: reports
