@@ -9,6 +9,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
+apply from: 'buildscripts/jacoco.gradle'
 
 apply plugin: 'kotlin-android'
 
