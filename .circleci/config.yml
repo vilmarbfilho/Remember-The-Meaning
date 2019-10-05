@@ -27,11 +27,17 @@ jobs:
           name: Run Tests
           command: ./gradlew lint test
       - run:
+          name: Generate Jacoco Report
+          command: ./gradlew testDebugUnitTestCoverage
+      - run:
           name: Build debug APK
           command: ./gradlew assembleDebug
       - store_artifacts:
           path: app/build/reports
           destination: reports
+      - store_artifacts:
+          path: app/build/reports/jacoco/testDebugUnitTestCoverage/html
+          destination: coverage
       - store_artifacts:
           path: app/build/outputs/apk/debug
           destination: apk-debug
