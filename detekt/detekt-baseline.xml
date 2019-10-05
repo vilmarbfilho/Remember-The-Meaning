@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <Blacklist></Blacklist>
+  <Whitelist>
+    <ID>EmptyClassBlock:ThreadExecutor.kt$ThreadExecutor : Executor</ID>
+    <ID>MagicNumber:DeckViewModel.kt$DeckViewModel$250</ID>
+    <ID>MagicNumber:JobExecutor.kt$JobExecutor$10</ID>
+    <ID>MagicNumber:JobExecutor.kt$JobExecutor$3</ID>
+    <ID>MagicNumber:JobExecutor.kt$JobExecutor$5</ID>
+    <ID>NewLineAtEndOfFile:ActivitiesModule.kt$br.com.vilmar.rememberthemeaning.dagger.ActivitiesModule.kt</ID>
+    <ID>NewLineAtEndOfFile:AppModule.kt$br.com.vilmar.rememberthemeaning.dagger.AppModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ApplicationComponent.kt$br.com.vilmar.rememberthemeaning.dagger.ApplicationComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:DaoModule.kt$br.com.vilmar.rememberthemeaning.dagger.DaoModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DataRepositoryModule.kt$br.com.vilmar.rememberthemeaning.dagger.DataRepositoryModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DeckFragment.kt$br.com.vilmar.rememberthemeaning.ui.deck.DeckFragment.kt</ID>
+    <ID>NewLineAtEndOfFile:DeckViewModel.kt$br.com.vilmar.rememberthemeaning.ui.deck.DeckViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:FragmentsModule.kt$br.com.vilmar.rememberthemeaning.dagger.FragmentsModule.kt</ID>
+    <ID>NewLineAtEndOfFile:JobExecutor.kt$br.com.vilmar.rememberthemeaning.executor.JobExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:LiveDataExtensions.kt$br.com.vilmar.rememberthemeaning.common.extensions.LiveDataExtensions.kt</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$br.com.vilmar.rememberthemeaning.ui.common.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:MainViewModel.kt$br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:PostExecutionThread.kt$br.com.vilmar.rememberthemeaning.executor.PostExecutionThread.kt</ID>
+    <ID>NewLineAtEndOfFile:SingleLiveEvent.kt$br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent.kt</ID>
+    <ID>NewLineAtEndOfFile:ThreadExecutor.kt$br.com.vilmar.rememberthemeaning.executor.ThreadExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:ThreadModule.kt$br.com.vilmar.rememberthemeaning.dagger.ThreadModule.kt</ID>
+    <ID>NewLineAtEndOfFile:UIThread.kt$br.com.vilmar.rememberthemeaning.executor.UIThread.kt</ID>
+    <ID>NewLineAtEndOfFile:VocabularyAdapter.kt$br.com.vilmar.rememberthemeaning.ui.deck.VocabularyAdapter.kt</ID>
+    <ID>NewLineAtEndOfFile:VocabularyDataSource.kt$br.com.vilmar.rememberthemeaning.data.repository.VocabularyDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:VocabularyRepository.kt$br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:VocabularyViewHolder.kt$br.com.vilmar.rememberthemeaning.ui.deck.VocabularyViewHolder.kt</ID>
+    <ID>TooManyFunctions:DeckFragment.kt$DeckFragment : Fragment</ID>
+  </Whitelist>
+</SmellBaseline>
