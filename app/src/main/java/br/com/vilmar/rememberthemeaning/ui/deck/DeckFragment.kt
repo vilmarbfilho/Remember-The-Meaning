@@ -69,7 +69,7 @@ class DeckFragment: Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
-        menuInflater!!.inflate(R.menu.toolbar_menu_deck, menu)
+        menuInflater?.inflate(R.menu.toolbar_menu_deck, menu)
 
         handleSearchView(menu)
 
@@ -85,7 +85,6 @@ class DeckFragment: Fragment() {
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-
                 return false
             }
         })
