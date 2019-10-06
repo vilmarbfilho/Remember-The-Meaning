@@ -23,11 +23,11 @@ import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment: Fragment() {
+class DeckFragment : Fragment() {
 
     private val adapter = VocabularyAdapter()
 
-    private lateinit var fragmentBinding : DeckFragmentBinding
+    private lateinit var fragmentBinding: DeckFragmentBinding
 
     @Inject
     lateinit var viewModel: DeckViewModel
@@ -42,10 +42,19 @@ class DeckFragment: Fragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentBinding = DataBindingUtil.inflate(inflater, R.layout.deck_fragment, container, false)
-
-        fragmentBinding.viewModel = viewModel
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        fragmentBinding = DataBindingUtil.inflate<DeckFragmentBinding>(
+            inflater,
+            R.layout.deck_fragment,
+            container,
+            false
+        ).apply {
+            viewModel = this@DeckFragment.viewModel
+        }
 
         return fragmentBinding.root
     }
@@ -68,9 +77,9 @@ class DeckFragment: Fragment() {
         super.onCreateOptionsMenu(menu, menuInflater)
     }
 
-    private fun handleSearchView(menu : Menu?) {
+    private fun handleSearchView(menu: Menu?) {
         val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
                 viewModel.search(text)
                 return false
@@ -131,8 +140,6 @@ class DeckFragment: Fragment() {
     }
 
     companion object {
-
         const val SPAN_COUNT = 2
-
     }
 }

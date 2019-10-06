@@ -14,11 +14,11 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class DeckViewModel @Inject constructor(
-        private val vocabularyRepository: VocabularyRepository,
-        private val threadExecutor: ThreadExecutor,
-        private val postExecutionThread: PostExecutionThread,
-        private val compositeDisposable: CompositeDisposable): ViewModel() {
-
+    private val vocabularyRepository: VocabularyRepository,
+    private val threadExecutor: ThreadExecutor,
+    private val postExecutionThread: PostExecutionThread,
+    private val compositeDisposable: CompositeDisposable
+) : ViewModel() {
 
     private val _newWordScreen = SingleLiveEvent<Unit>()
 
@@ -26,7 +26,7 @@ class DeckViewModel @Inject constructor(
 
     val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
 
-    private val consumeInfo = { list : List<Vocabulary> ->
+    private val consumeInfo = { list: List<Vocabulary> ->
         vocabularyListLiveData.value = list
     }
 
@@ -37,11 +37,11 @@ class DeckViewModel @Inject constructor(
                 .subscribe(consumeInfo))
     }
 
-    fun search(word : String) {
+    fun search(word: String) {
         compositeDisposable.add(vocabularyRepository.search(word)
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.getScheduler())
-                .debounce(250, TimeUnit.MILLISECONDS)
+                .debounce(TIME_DEBOUNCE_DEFAULT, TimeUnit.MILLISECONDS)
                 .subscribe(consumeInfo))
     }
 
@@ -53,5 +53,9 @@ class DeckViewModel @Inject constructor(
         if (!compositeDisposable.isDisposed) {
             compositeDisposable.dispose()
         }
+    }
+
+    companion object {
+        private const val TIME_DEBOUNCE_DEFAULT = 250L
     }
 }
