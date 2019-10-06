@@ -1,6 +1,6 @@
 package br.com.vilmar.rememberthemeaning.common.extensions
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 
 fun MutableLiveData<Unit>.triggerEvent() {
     this.value = Unit

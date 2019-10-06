@@ -1,6 +1,6 @@
 package br.com.vilmar.rememberthemeaning.common
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 
 
 class TestObserver<T> : Observer<T> {

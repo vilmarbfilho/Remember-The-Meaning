@@ -1,11 +1,11 @@
 package br.com.vilmar.rememberthemeaning.ui.common
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import com.vilmar.rememberthemeaning.app.R
 import dagger.android.AndroidInjection
@@ -13,7 +13,7 @@ import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
-import android.support.v4.view.GravityCompat
+import androidx.core.view.GravityCompat
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_FEEDBACK_SCREEN
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_SETTINGS_SCREEN
@@ -23,7 +23,7 @@ import com.vilmar.rememberthemeaning.app.databinding.MainActivityBinding
 class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
-    lateinit var fragmentDispatchingAndroidInjector : DispatchingAndroidInjector<Fragment>
+    lateinit var fragmentDispatchingAndroidInjector : DispatchingAndroidInjector<androidx.fragment.app.Fragment>
 
     @Inject
     lateinit var viewModel: MainViewModel
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         observerUIEvents()
     }
 
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
+    override fun supportFragmentInjector(): AndroidInjector<androidx.fragment.app.Fragment> {
         return fragmentDispatchingAndroidInjector
     }
 

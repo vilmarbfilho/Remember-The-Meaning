@@ -9,7 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,7 +21,6 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
 import br.com.vilmar.rememberthemeaning.data.database.model.Media;
-import br.com.vilmar.rememberthemeaning.util.HelperUtil;
 
 /**
  * Created by vilmar on 2/20/15.

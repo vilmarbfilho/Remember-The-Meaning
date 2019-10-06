@@ -1,6 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.common
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.vilmar.rememberthemeaning.common.BaseTest
 import br.com.vilmar.rememberthemeaning.common.testObserver
 import com.google.common.truth.Truth
