@@ -1,6 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import br.com.vilmar.rememberthemeaning.common.BaseTest
 import br.com.vilmar.rememberthemeaning.common.RxSchedulerRule
 import br.com.vilmar.rememberthemeaning.common.testObserver

@@ -1,7 +1,7 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import br.com.vilmar.rememberthemeaning.common.extensions.triggerEvent
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository

@@ -1,7 +1,7 @@
 package br.com.vilmar.rememberthemeaning.common
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import org.junit.Assert.fail
 
 fun <T> LiveData<T>.testObserver() = TestObserver<T>().also {
