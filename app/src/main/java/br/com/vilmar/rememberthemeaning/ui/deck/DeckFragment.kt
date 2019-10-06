@@ -1,15 +1,14 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.content.Context
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.SearchView
-import android.support.v7.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -23,7 +22,7 @@ import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment : Fragment() {
+class DeckFragment: Fragment() {
 
     private val adapter = VocabularyAdapter()
 
@@ -100,7 +99,7 @@ class DeckFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        fragmentBinding.recyclerView.layoutManager = GridLayoutManager(activity, SPAN_COUNT)
+        fragmentBinding.recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(activity, SPAN_COUNT)
 
         fragmentBinding.recyclerView.adapter = adapter
 

@@ -1,6 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.common
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 import javax.inject.Inject
 

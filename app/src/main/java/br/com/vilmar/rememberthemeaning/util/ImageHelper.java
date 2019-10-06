@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Callback;
@@ -16,7 +14,6 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
 import br.com.vilmar.rememberthemeaning.Constants;
-import br.com.vilmar.rememberthemeaning.util.HelperUtil;
 
 /**
  * Created by vilmar on 3/15/15.
