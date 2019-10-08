@@ -17,10 +17,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.runners.MockitoJUnitRunner
+import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class DeckViewModelTest: BaseTest() {
+class DeckViewModelTest : BaseTest() {
 
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()
@@ -65,8 +65,8 @@ class DeckViewModelTest: BaseTest() {
         viewModel.newWordScreen.verify()
     }
 
-    /* At the moment is not possible make this test
-    @Test
+    /* At the moment is not possible make this test */
+    /*@Test
     fun `on click in card open word activity`() {
         val position = 1
         val fakeValues = createVocabularyList()
@@ -81,6 +81,4 @@ class DeckViewModelTest: BaseTest() {
                 .that(wordEventLiveData.getValue())
                 .isEqualTo(fakeValues[position])
     }*/
-
-
 }

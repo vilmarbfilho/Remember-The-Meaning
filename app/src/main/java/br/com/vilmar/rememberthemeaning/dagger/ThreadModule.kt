@@ -11,9 +11,8 @@ import dagger.Provides
 class ThreadModule {
 
     @Provides
-    fun providesJobExecutor() : ThreadExecutor = JobExecutor()
+    fun providesJobExecutor(): ThreadExecutor = JobExecutor()
 
     @Provides
-    fun providesUIThread() : PostExecutionThread = UIThread()
-
+    fun providesUIThread(): PostExecutionThread = UIThread()
 }

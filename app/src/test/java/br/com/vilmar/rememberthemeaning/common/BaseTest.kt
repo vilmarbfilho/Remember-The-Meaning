@@ -18,5 +18,4 @@ open class BaseTest {
 
         return list
     }
-
 }

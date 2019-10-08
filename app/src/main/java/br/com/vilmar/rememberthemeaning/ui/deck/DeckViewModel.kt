@@ -56,6 +56,6 @@ class DeckViewModel @Inject constructor(
     }
 
     companion object {
-        private const val TIME_DEBOUNCE_DEFAULT = 250L
+        private const val TIME_DEBOUNCE_DEFAULT = 300L
     }
 }

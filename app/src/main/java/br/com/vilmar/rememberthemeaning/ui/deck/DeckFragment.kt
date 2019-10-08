@@ -14,6 +14,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
@@ -22,7 +23,7 @@ import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment: Fragment() {
+class DeckFragment : Fragment() {
 
     private val adapter = VocabularyAdapter()
 
@@ -45,7 +46,7 @@ class DeckFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentBinding = DataBindingUtil.inflate<DeckFragmentBinding>(
             inflater,
             R.layout.deck_fragment,
@@ -68,16 +69,16 @@ class DeckFragment: Fragment() {
         observerUIEvents()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
-        menuInflater?.inflate(R.menu.toolbar_menu_deck, menu)
+    override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.toolbar_menu_deck, menu)
 
         handleSearchView(menu)
 
         super.onCreateOptionsMenu(menu, menuInflater)
     }
 
-    private fun handleSearchView(menu: Menu?) {
-        val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
+    private fun handleSearchView(menu: Menu) {
+        val searchView = menu.findItem(R.id.search)?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
                 viewModel.search(text)
@@ -98,7 +99,7 @@ class DeckFragment: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        fragmentBinding.recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(activity, SPAN_COUNT)
+        fragmentBinding.recyclerView.layoutManager = GridLayoutManager(activity, SPAN_COUNT)
 
         fragmentBinding.recyclerView.adapter = adapter
 
