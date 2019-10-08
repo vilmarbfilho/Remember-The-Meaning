@@ -1,6 +1,7 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.vilmar.rememberthemeaning.common.extensions.triggerEvent
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
@@ -24,7 +25,7 @@ class DeckViewModel @Inject constructor(
 
     val newWordScreen: LiveData<Unit> get() = _newWordScreen
 
-    val vocabularyListLiveData = SingleLiveEvent<List<Vocabulary>>()
+    val vocabularyListLiveData = MutableLiveData(emptyList<Vocabulary>())
 
     private val consumeInfo = { list: List<Vocabulary> ->
         vocabularyListLiveData.value = list
@@ -43,6 +44,11 @@ class DeckViewModel @Inject constructor(
                 .observeOn(postExecutionThread.getScheduler())
                 .debounce(TIME_DEBOUNCE_DEFAULT, TimeUnit.MILLISECONDS)
                 .subscribe(consumeInfo))
+    }
+
+    fun onItemClickVocabulary(position: Int) {
+        // Create extension guard
+        //vocabularyListLiveData.value[position]
     }
 
     fun openNewWordActivity() {

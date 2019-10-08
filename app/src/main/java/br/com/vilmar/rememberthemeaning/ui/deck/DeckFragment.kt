@@ -65,7 +65,6 @@ class DeckFragment : Fragment() {
         setupToolbar()
         setupRecyclerView()
 
-        observerVocabularyAdapter()
         observerUIEvents()
     }
 
@@ -103,16 +102,9 @@ class DeckFragment : Fragment() {
 
         fragmentBinding.recyclerView.adapter = adapter
 
-        adapter.onItemClickVocabulary {
-            openEditVocabulary(it)
+        adapter.onItemClickVocabulary { position, _ ->
+            viewModel.onItemClickVocabulary(position)
         }
-    }
-
-    private fun observerVocabularyAdapter() {
-        viewModel.vocabularyListLiveData.observe(this, Observer {
-            val vocabulary = it ?: emptyList()
-            adapter.loadData(vocabulary)
-        })
     }
 
     private fun observerUIEvents() {
