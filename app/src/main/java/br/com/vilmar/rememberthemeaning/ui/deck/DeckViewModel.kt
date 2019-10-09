@@ -3,6 +3,7 @@ package br.com.vilmar.rememberthemeaning.ui.deck
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.vilmar.rememberthemeaning.common.extensions.guard
 import br.com.vilmar.rememberthemeaning.common.extensions.triggerEvent
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
@@ -21,21 +22,21 @@ class DeckViewModel @Inject constructor(
     private val compositeDisposable: CompositeDisposable
 ) : ViewModel() {
 
-    private val _newWordScreen = SingleLiveEvent<Unit>()
+    private val _newWord = SingleLiveEvent<Unit>()
+    private val _editWord = SingleLiveEvent<Vocabulary>()
 
-    val newWordScreen: LiveData<Unit> get() = _newWordScreen
+    val newWord: LiveData<Unit> get() = _newWord
+    val editWord: LiveData<Vocabulary> get() = _editWord
 
     val vocabularyListLiveData = MutableLiveData(emptyList<Vocabulary>())
-
-    private val consumeInfo = { list: List<Vocabulary> ->
-        vocabularyListLiveData.value = list
-    }
 
     fun getVocabulary() {
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.getScheduler())
-                .subscribe(consumeInfo))
+                .subscribe {
+                    vocabularyListLiveData.value = it
+                })
     }
 
     fun search(word: String) {
@@ -43,16 +44,17 @@ class DeckViewModel @Inject constructor(
                 .subscribeOn(Schedulers.from(threadExecutor))
                 .observeOn(postExecutionThread.getScheduler())
                 .debounce(TIME_DEBOUNCE_DEFAULT, TimeUnit.MILLISECONDS)
-                .subscribe(consumeInfo))
+                .subscribe {
+                    vocabularyListLiveData.value = it
+                })
     }
 
     fun onItemClickVocabulary(position: Int) {
-        // Create extension guard
-        //vocabularyListLiveData.value[position]
+        _editWord.value = vocabularyListLiveData.value?.get(position).guard { return }
     }
 
     fun openNewWordActivity() {
-        _newWordScreen.triggerEvent()
+        _newWord.triggerEvent()
     }
 
     override fun onCleared() {

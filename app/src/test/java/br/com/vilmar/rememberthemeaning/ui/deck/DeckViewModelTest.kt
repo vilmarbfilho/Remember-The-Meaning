@@ -62,7 +62,7 @@ class DeckViewModelTest : BaseTest() {
     fun `on click plus button open new word activity`() {
         viewModel.openNewWordActivity()
 
-        viewModel.newWordScreen.verify()
+        viewModel.newWord.verify()
     }
 
     /* At the moment is not possible make this test */

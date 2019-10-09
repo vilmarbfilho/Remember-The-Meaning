@@ -108,8 +108,12 @@ class DeckFragment : Fragment() {
     }
 
     private fun observerUIEvents() {
-        viewModel.newWordScreen.observe(this, Observer {
+        viewModel.newWord.observe(this, Observer {
             openNewWordActivity()
+        })
+
+        viewModel.editWord.observe(this, Observer {
+            openEditVocabulary(it)
         })
     }
 
