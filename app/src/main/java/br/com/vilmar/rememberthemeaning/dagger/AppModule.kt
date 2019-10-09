@@ -10,9 +10,8 @@ import io.reactivex.disposables.CompositeDisposable
 class AppModule {
 
     @Provides
-    fun provideApplication(rtmApplication : RememberTheMeaningApplication): Context = rtmApplication
+    fun provideApplication(rtmApplication: RememberTheMeaningApplication): Context = rtmApplication
 
     @Provides
-    fun provideCompositeDisposable() : CompositeDisposable = CompositeDisposable()
-
+    fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
 }

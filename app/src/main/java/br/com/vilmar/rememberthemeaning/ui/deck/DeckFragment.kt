@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
@@ -15,6 +14,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
@@ -23,11 +23,11 @@ import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class DeckFragment: androidx.fragment.app.Fragment() {
+class DeckFragment : Fragment() {
 
     private val adapter = VocabularyAdapter()
 
-    private lateinit var fragmentBinding : DeckFragmentBinding
+    private lateinit var fragmentBinding: DeckFragmentBinding
 
     @Inject
     lateinit var viewModel: DeckViewModel
@@ -42,10 +42,19 @@ class DeckFragment: androidx.fragment.app.Fragment() {
         setHasOptionsMenu(true)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        fragmentBinding = DataBindingUtil.inflate(inflater, R.layout.deck_fragment, container, false)
-
-        fragmentBinding.viewModel = viewModel
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        fragmentBinding = DataBindingUtil.inflate<DeckFragmentBinding>(
+            inflater,
+            R.layout.deck_fragment,
+            container,
+            false
+        ).apply {
+            viewModel = this@DeckFragment.viewModel
+        }
 
         return fragmentBinding.root
     }
@@ -56,28 +65,26 @@ class DeckFragment: androidx.fragment.app.Fragment() {
         setupToolbar()
         setupRecyclerView()
 
-        observerVocabularyAdapter()
         observerUIEvents()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, menuInflater: MenuInflater?) {
-        menuInflater!!.inflate(R.menu.toolbar_menu_deck, menu)
+    override fun onCreateOptionsMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.toolbar_menu_deck, menu)
 
         handleSearchView(menu)
 
         super.onCreateOptionsMenu(menu, menuInflater)
     }
 
-    private fun handleSearchView(menu : Menu?) {
-        val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+    private fun handleSearchView(menu: Menu) {
+        val searchView = menu.findItem(R.id.search)?.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
                 viewModel.search(text)
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-
                 return false
             }
         })
@@ -91,25 +98,22 @@ class DeckFragment: androidx.fragment.app.Fragment() {
     }
 
     private fun setupRecyclerView() {
-        fragmentBinding.recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(activity, SPAN_COUNT)
+        fragmentBinding.recyclerView.layoutManager = GridLayoutManager(activity, SPAN_COUNT)
 
         fragmentBinding.recyclerView.adapter = adapter
 
-        adapter.onItemClickVocabulary {
-            openEditVocabulary(it)
+        adapter.onItemClickVocabulary { position, _ ->
+            viewModel.onItemClickVocabulary(position)
         }
     }
 
-    private fun observerVocabularyAdapter() {
-        viewModel.vocabularyListLiveData.observe(this, Observer {
-            val vocabulary = it ?: emptyList()
-            adapter.loadData(vocabulary)
-        })
-    }
-
     private fun observerUIEvents() {
-        viewModel.newWordScreen.observe(this, Observer {
+        viewModel.newWord.observe(this, Observer {
             openNewWordActivity()
+        })
+
+        viewModel.editWord.observe(this, Observer {
+            openEditVocabulary(it)
         })
     }
 
@@ -131,8 +135,6 @@ class DeckFragment: androidx.fragment.app.Fragment() {
     }
 
     companion object {
-
         const val SPAN_COUNT = 2
-
     }
 }
