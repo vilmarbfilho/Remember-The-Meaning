@@ -1,17 +1,18 @@
-package br.com.vilmar.rememberthemeaning.data.repository
+package br.com.vilmar.rememberthemeaning.repository
 
 import br.com.vilmar.rememberthemeaning.common.BaseTest
+import br.com.vilmar.rememberthemeaning.data.repository.VocabularyDataSource
+import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import com.google.common.truth.Truth
 import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.InjectMocks
 import org.mockito.Mock
-import org.mockito.runners.MockitoJUnitRunner
-
+import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class VocabularyRepositoryTest: BaseTest() {
+class VocabularyRepositoryTest : BaseTest() {
 
     @Mock
     lateinit var vocabularyDataSource: VocabularyDataSource
@@ -28,8 +29,7 @@ class VocabularyRepositoryTest: BaseTest() {
         val vocabularyList = vocabularyRepository.getAll().blockingGet()
 
         Truth
-                .assertThat(vocabularyList)
-                .containsAllIn(fakeValues)
+            .assertThat(vocabularyList)
+            .contains(fakeValues)
     }
-
 }

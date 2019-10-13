@@ -29,7 +29,6 @@ class DeckViewModel @Inject constructor(
     val editWord: LiveData<Vocabulary> get() = _editWord
     val vocabularyItems: LiveData<List<Vocabulary>> get() = _vocabularyItems
 
-
     fun getVocabulary() {
         compositeDisposable.add(vocabularyRepository.getAll()
                 .subscribeOn(Schedulers.from(threadExecutor))

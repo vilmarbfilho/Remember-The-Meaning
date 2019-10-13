@@ -8,7 +8,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.runners.MockitoJUnitRunner
+import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class MainViewModelTest : BaseTest() {
@@ -16,7 +16,7 @@ class MainViewModelTest : BaseTest() {
     @get:Rule
     val taskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var viewModel : MainViewModel
+    private lateinit var viewModel: MainViewModel
 
     @Before
     fun setUp() {
@@ -30,8 +30,8 @@ class MainViewModelTest : BaseTest() {
         viewModel.openSettings()
 
         Truth.assert_()
-                .that(uiEventLiveData.getValue())
-                .isEqualTo(MainViewModel.OPEN_SETTINGS_SCREEN)
+            .that(uiEventLiveData.getValue())
+            .isEqualTo(MainViewModel.OPEN_SETTINGS_SCREEN)
     }
 
     @Test
@@ -41,9 +41,7 @@ class MainViewModelTest : BaseTest() {
         viewModel.openFeedback()
 
         Truth.assert_()
-                .that(uiEventLiveData.getValue())
-                .isEqualTo(MainViewModel.OPEN_FEEDBACK_SCREEN)
+            .that(uiEventLiveData.getValue())
+            .isEqualTo(MainViewModel.OPEN_FEEDBACK_SCREEN)
     }
-
-
 }

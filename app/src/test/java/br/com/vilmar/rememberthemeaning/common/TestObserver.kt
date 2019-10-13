@@ -2,7 +2,6 @@ package br.com.vilmar.rememberthemeaning.common
 
 import androidx.lifecycle.Observer
 
-
 class TestObserver<T> : Observer<T> {
 
     private var observedValue: T? = null
@@ -12,5 +11,4 @@ class TestObserver<T> : Observer<T> {
     }
 
     fun getValue(): T? = observedValue
-
 }
