@@ -1,7 +1,6 @@
 package br.com.vilmar.rememberthemeaning.ui.deck
 
 import androidx.lifecycle.Observer
-import android.content.Context
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
@@ -15,13 +14,12 @@ import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
+import br.com.vilmar.rememberthemeaning.R
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
+import br.com.vilmar.rememberthemeaning.databinding.DeckFragmentBinding
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
-import com.vilmar.rememberthemeaning.app.R
-import com.vilmar.rememberthemeaning.app.databinding.DeckFragmentBinding
-import dagger.android.support.AndroidSupportInjection
-import javax.inject.Inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeckFragment : Fragment() {
 
@@ -29,13 +27,7 @@ class DeckFragment : Fragment() {
 
     private lateinit var fragmentBinding: DeckFragmentBinding
 
-    @Inject
-    lateinit var viewModel: DeckViewModel
-
-    override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
+    val deckViewModel: DeckViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +45,8 @@ class DeckFragment : Fragment() {
             container,
             false
         ).apply {
-            viewModel = this@DeckFragment.viewModel
+            viewModel = this@DeckFragment.deckViewModel
+            lifecycleOwner = viewLifecycleOwner
         }
 
         return fragmentBinding.root
@@ -80,7 +73,7 @@ class DeckFragment : Fragment() {
         val searchView = menu.findItem(R.id.search)?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(text: String): Boolean {
-                viewModel.search(text)
+                deckViewModel.search(text)
                 return false
             }
 
@@ -103,16 +96,16 @@ class DeckFragment : Fragment() {
         fragmentBinding.recyclerView.adapter = adapter
 
         adapter.onItemClickVocabulary { position, _ ->
-            viewModel.onItemClickVocabulary(position)
+            deckViewModel.onItemClickVocabulary(position)
         }
     }
 
     private fun observerUIEvents() {
-        viewModel.newWord.observe(this, Observer {
+        deckViewModel.newWord.observe(this, Observer {
             openNewWordActivity()
         })
 
-        viewModel.editWord.observe(this, Observer {
+        deckViewModel.editWord.observe(this, Observer {
             openEditVocabulary(it)
         })
     }
@@ -131,7 +124,7 @@ class DeckFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getVocabulary()
+        deckViewModel.getVocabulary()
     }
 
     companion object {

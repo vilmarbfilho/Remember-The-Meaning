@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
+import br.com.vilmar.rememberthemeaning.R
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
-import com.vilmar.rememberthemeaning.app.R
 
 class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

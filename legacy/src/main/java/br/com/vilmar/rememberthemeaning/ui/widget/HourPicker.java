@@ -8,10 +8,9 @@ import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.NumberPicker;
 
 import com.vilmar.rememberthemeaning.app.R;
-
-import net.simonvt.numberpicker.NumberPicker;
 
 /**
  * Created by vilmar.filho on 30/01/15.

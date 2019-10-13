@@ -268,40 +268,27 @@ public class CadastreEditActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            //case R.id.btn_save:
-            case R.id.ll_btn_save:
-                saveWord();
-                break;
+        int id = view.getId();//case R.id.btn_save:
+        if (id == R.id.ll_btn_save) {
+            saveWord();
 
             //case R.id.btn_delete:
-            case R.id.ll_btn_delete:
-                deleteWord();
-                break;
-
-            case R.id.et_language:
-                showLanguageDialog();
-                break;
-
-            case R.id.et_notification:
-                showHourDialog(view);
-                break;
-
-            case R.id.btn_photo:
-                takeImage();
-                break;
+        } else if (id == R.id.ll_btn_delete) {
+            deleteWord();
+        } else if (id == R.id.et_language) {
+            showLanguageDialog();
+        } else if (id == R.id.et_notification) {
+            showHourDialog(view);
+        } else if (id == R.id.btn_photo) {
+            takeImage();
 
 //            case R.id.btn_audio:
 //                Log.i("Click","btn_audio");
 //                break;
-
-            case R.id.ib_new_language:
-                cadastreLanguage();
-                break;
-
-            case R.id.ib_delete_image:
-                deleteImage();
-                break;
+        } else if (id == R.id.ib_new_language) {
+            cadastreLanguage();
+        } else if (id == R.id.ib_delete_image) {
+            deleteImage();
         }
     }
 

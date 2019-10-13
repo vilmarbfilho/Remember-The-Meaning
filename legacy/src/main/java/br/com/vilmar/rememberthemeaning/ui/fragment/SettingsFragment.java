@@ -64,15 +64,13 @@ public class SettingsFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.et_notification:
-                showHourDialog(v);
-                break;
+        int id = v.getId();
+        if (id == R.id.et_notification) {
+            showHourDialog(v);
 
             //case R.id.btn_save:
-            case R.id.ll_btn_save:
-                saveSettings();
-                break;
+        } else if (id == R.id.ll_btn_save) {
+            saveSettings();
         }
     }
 

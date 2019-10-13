@@ -139,22 +139,15 @@ public class LanguageFragment extends Fragment implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.et_language:
-                showLanguageDialog();
-                break;
-
-            case R.id.btn_plus:
-                cadastreLanguage();
-                break;
-
-            case R.id.btn_edit:
-                editLanguage();
-                break;
-
-            case R.id.btn_delete:
-                deleteLanguage();
-                break;
+        int id = v.getId();
+        if (id == R.id.et_language) {
+            showLanguageDialog();
+        } else if (id == R.id.btn_plus) {
+            cadastreLanguage();
+        } else if (id == R.id.btn_edit) {
+            editLanguage();
+        } else if (id == R.id.btn_delete) {
+            deleteLanguage();
         }
     }
 

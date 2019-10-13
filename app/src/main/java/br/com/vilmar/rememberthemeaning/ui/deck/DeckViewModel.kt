@@ -9,7 +9,6 @@ import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.executor.PostExecutionThread
 import br.com.vilmar.rememberthemeaning.executor.ThreadExecutor
-import br.com.vilmar.rememberthemeaning.ui.SingleLiveEvent
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit

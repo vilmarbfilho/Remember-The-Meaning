@@ -1,15 +1,4 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
-
-apply plugin: 'com.android.application'
-apply from: 'buildscripts/jacoco.gradle'
+apply plugin: 'com.android.library'
 
 apply plugin: 'kotlin-android'
 
@@ -17,13 +6,10 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'io.fabric'
-
 android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.vilmar.rememberthemeaning.app"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 3
@@ -31,54 +17,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        manifestPlaceholders = [api_key_crashlytics: project.ext.Crashlytics]
-
         vectorDrawables.useSupportLibrary = true
-    }
-
-    dataBinding {
-        enabled true
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    packagingOptions {
-        exclude 'LICENSE.txt'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/ASL2.0'
-        exclude 'META-INF/NOTICE'
-        exclude 'META-INF/LICENSE'
-    }
-
-    signingConfigs {
-        release {
-            storeFile file(project.ext.STORE_FILE)
-            storePassword project.ext.STORE_PASSWORD
-            keyAlias project.ext.KEY_ALIAS
-            keyPassword project.ext.KEY_PASSWORD
-        }
-    }
-
-    buildTypes {
-        release {
-            debuggable false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-
-        debug {
-            versionNameSuffix '-DEBUG'
-            minifyEnabled false
-            signingConfig signingConfigs.release
-        }
-    }
-
-    lintOptions {
-        abortOnError false
     }
 }
 
@@ -91,7 +35,6 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation(name:'numberpicker', ext:'aar')
 
     // google dependencies
     implementation 'androidx.appcompat:appcompat:1.0.0'

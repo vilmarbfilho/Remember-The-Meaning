@@ -170,11 +170,8 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        switch (id) {
-            case R.id.fab:
-                //setFragmentContent(new CadastreFragment(), R.id.content_frame, "new_cadastre", true);
-                ((HomeActivity)getActivity()).selectItem(1);
-                break;
+        if (id == R.id.fab) {//setFragmentContent(new CadastreFragment(), R.id.content_frame, "new_cadastre", true);
+            ((HomeActivity) getActivity()).selectItem(1);
         }
     }
 

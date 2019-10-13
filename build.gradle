@@ -42,4 +42,5 @@ ext {
     lifecycle_version = "2.1.0"
     daggerVersion = '2.19'
     nhaarmanMockito = '1.6.0'
+    koin_version = '2.0.1'
 }

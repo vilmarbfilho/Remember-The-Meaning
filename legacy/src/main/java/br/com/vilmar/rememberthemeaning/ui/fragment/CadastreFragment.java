@@ -256,39 +256,25 @@ public class CadastreFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            //case R.id.btn_save:
-            case R.id.ll_btn_save:
-                saveWord();
-                break;
-
-            case R.id.et_language:
-                showLanguageDialog();
-                break;
-
-            case R.id.et_notification:
-                showHourDialog(v);
-                break;
-
-            case R.id.btn_photo:
-                takeImage();
-                break;
+        int id = v.getId();//case R.id.btn_save:
+        if (id == R.id.ll_btn_save) {
+            saveWord();
+        } else if (id == R.id.et_language) {
+            showLanguageDialog();
+        } else if (id == R.id.et_notification) {
+            showHourDialog(v);
+        } else if (id == R.id.btn_photo) {
+            takeImage();
 
 //            case R.id.btn_audio:
 //                Log.i("Click","btn_audio");
 //                break;
-
-            case R.id.ib_new_language:
-                cadastreLanguage();
-                break;
-
-            case R.id.ib_options:
-                showOptionsRecord();
-                break;
-
-            case R.id.ib_delete_image:
-                deleteImage();
-                break;
+        } else if (id == R.id.ib_new_language) {
+            cadastreLanguage();
+        } else if (id == R.id.ib_options) {
+            showOptionsRecord();
+        } else if (id == R.id.ib_delete_image) {
+            deleteImage();
         }
     }
 
