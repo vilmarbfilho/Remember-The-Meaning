@@ -23,11 +23,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DeckFragment : Fragment() {
 
+    val deckViewModel: DeckViewModel by viewModel()
+
     private val adapter = VocabularyAdapter()
 
     private lateinit var fragmentBinding: DeckFragmentBinding
 
-    val deckViewModel: DeckViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
