@@ -16,7 +16,7 @@ class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         VocabularyViewHolder(LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.word_item, parent, false))
+            .inflate(R.layout.item_word, parent, false))
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as VocabularyViewHolder).binding

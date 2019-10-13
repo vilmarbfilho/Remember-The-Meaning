@@ -16,7 +16,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.vilmar.rememberthemeaning.R
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
-import br.com.vilmar.rememberthemeaning.databinding.DeckFragmentBinding
+import br.com.vilmar.rememberthemeaning.databinding.FragmentDeckBinding
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -27,8 +27,7 @@ class DeckFragment : Fragment() {
 
     private val adapter = VocabularyAdapter()
 
-    private lateinit var fragmentBinding: DeckFragmentBinding
-
+    private lateinit var fragmentBinding: FragmentDeckBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +39,9 @@ class DeckFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fragmentBinding = DataBindingUtil.inflate<DeckFragmentBinding>(
+        fragmentBinding = DataBindingUtil.inflate<FragmentDeckBinding>(
             inflater,
-            R.layout.deck_fragment,
+            R.layout.fragment_deck,
             container,
             false
         ).apply {

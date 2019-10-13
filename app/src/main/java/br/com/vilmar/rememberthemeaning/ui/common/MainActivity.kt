@@ -8,25 +8,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import br.com.vilmar.rememberthemeaning.R
-import br.com.vilmar.rememberthemeaning.databinding.MainActivityBinding
+import br.com.vilmar.rememberthemeaning.databinding.ActivityMainBinding
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_FEEDBACK_SCREEN
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_SETTINGS_SCREEN
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class MainActivity : AppCompatActivity() {
 
     val mainViewModel: MainViewModel by viewModel()
 
-    private lateinit var binding: MainActivityBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView<MainActivityBinding>(
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
-            R.layout.main_activity
+            R.layout.activity_main
         ).apply {
             viewModel = mainViewModel
             lifecycleOwner = this@MainActivity

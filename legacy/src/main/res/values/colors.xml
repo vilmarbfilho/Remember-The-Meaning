@@ -29,19 +29,4 @@
     <color name="purple_610B5E">#610B5E</color>
     <color name="black_000000">#000000</color>
     <color name="marine_338585">#338585</color>
-
-    <!-- START - Refactor APP -->
-
-    <color name="colorPrimary">#FFFFFF</color>
-    <color name="colorPrimaryDark">#CCCCCC</color>
-    <color name="colorAccent">#F9AA33</color>
-
-    <color name="textColorPrimary">#403F3F</color>
-
-    <color name="toolbarIconColor">@color/textColorPrimary</color>
-
-    <color name="divider">#C3C3C3</color>
-
-    <!-- END - Refactor APP -->
-
 </resources>
