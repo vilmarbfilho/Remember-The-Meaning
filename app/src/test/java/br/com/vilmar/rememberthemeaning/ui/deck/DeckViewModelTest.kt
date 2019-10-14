@@ -36,10 +36,10 @@ class DeckViewModelTest : BaseTest() {
     @Before
     fun setUp() {
         viewModel = DeckViewModel(
-                VocabularyRepository(vocabularyDataSource),
-                JobExecutor(),
-                UIThread(),
-                CompositeDisposable())
+            VocabularyRepository(vocabularyDataSource),
+            JobExecutor(),
+            UIThread(),
+            CompositeDisposable())
     }
 
     @Test
@@ -49,13 +49,13 @@ class DeckViewModelTest : BaseTest() {
 
         whenever(vocabularyDataSource.getAll()).thenReturn(fakeValues)
 
-        val vocabularyListLiveData = viewModel.vocabularyListLiveData.testObserver()
+        val vocabularyListLiveData = viewModel.vocabularyItems.testObserver()
 
         viewModel.getVocabulary()
 
         Truth.assert_()
-                .that(vocabularyListLiveData.getValue())
-                .isEqualTo(fakeValues)
+            .that(vocabularyListLiveData.getValue())
+            .isEqualTo(fakeValues)
     }
 
     @Test

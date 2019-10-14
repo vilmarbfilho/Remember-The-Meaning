@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red_CD5C5C">#CD5C5C</color>
+    <color name="gray_CDC9C9">#CDC9C9</color>
+    <color name="gray_C2C2C2">#C2C2C2</color>
+    <color name="gray_d3d3d3">#D3D3D3</color>
+    <color name="gray_757575">#757575</color>
+    <color name="gray_E8E8E8">#E8E8E8</color>
+    <color name="gray_949494">#949494</color>
+    <color name="blue_FF1AA0CD">#FF1AA0CD</color>
+    <color name="blue_1580A4">#1580A4</color>
+    <color name="blue_0B8DB3">#0B8DB3</color>
+    <color name="blue_3366CC">#3366CC</color>
+    <color name="blue_084B8A">#084B8A</color>
+    <color name="purple_9E5E9E">#9E5E9E</color>
+    <color name="purple_C59EC5">#C59EC5</color>
+    <color name="purple_6F426F">#6F426F</color>
+    <color name="orage_FFCD82">#FFCD82</color>
+
+    <color name="red_FF0000">#FF0000</color>
+    <color name="red_FF4D4D">#FF4D4D</color>
+    <color name="red_FF9999">#FF9999</color>
+    <color name="orange_FE9A2E">#FE9A2E</color>
+    <color name="blue_5882FA">#5882FA</color>
+    <color name="blue_2E9AFE">#2E9AFE</color>
+    <color name="green_298A08">#298A08</color>
+    <color name="green_99FF66">#99FF66</color>
+    <color name="pink_FF00FF">#FF00FF</color>
+    <color name="purple_610B5E">#610B5E</color>
+    <color name="black_000000">#000000</color>
+    <color name="marine_338585">#338585</color>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppTheme" parent="Theme.AppCompat">
+<!--        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>-->
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+<!--        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>-->
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+
+    <style name="Theme.NumberPicker.old" parent="Theme.AppCompat.NoActionBar">
+<!--        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>-->
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+    <!-- START - My customs style-->
+    <style name="CustomEditText" parent="android:TextAppearance.Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/height_84px</item>
+        <item name="android:background">@drawable/background_input_data</item>
+        <item name="android:layout_marginTop">@dimen/margin_30px</item>
+        <item name="android:textSize">@dimen/font_16sp</item>
+        <item name="android:layout_marginLeft">@dimen/margin_20px</item>
+        <item name="android:layout_marginRight">@dimen/margin_20px</item>
+        <item name="android:paddingLeft">@dimen/padding_20px</item>
+    </style>
+
+    <style name="CustomTextView" parent="android:TextAppearance.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_20px</item>
+        <item name="android:layout_marginLeft">@dimen/margin_20px</item>
+        <item name="android:layout_marginRight">@dimen/margin_20px</item>
+    </style>
+
+    <style name="SubTitle" parent="android:TextAppearance.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/margin_20px</item>
+        <item name="android:layout_marginLeft">@dimen/margin_30px</item>
+        <item name="android:layout_marginRight">@dimen/margin_20px</item>
+        <item name="android:textSize">@dimen/font_14sp</item>
+        <item name="android:textColor">@color/gray_757575</item>
+    </style>
+
+    <style name="TextAppearance.Cuprum.Bold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/Cuprum-Bold.ttf</item>
+    </style>
+
+    <!-- END - My customs style-->
+</resources>

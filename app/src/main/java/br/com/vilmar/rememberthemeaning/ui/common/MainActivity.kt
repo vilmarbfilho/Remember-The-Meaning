@@ -4,47 +4,35 @@ import androidx.lifecycle.Observer
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
-import com.vilmar.rememberthemeaning.app.R
-import dagger.android.AndroidInjection
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
-import javax.inject.Inject
 import androidx.core.view.GravityCompat
+import br.com.vilmar.rememberthemeaning.R
+import br.com.vilmar.rememberthemeaning.databinding.ActivityMainBinding
 import br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_FEEDBACK_SCREEN
 import br.com.vilmar.rememberthemeaning.ui.common.MainViewModel.Companion.OPEN_SETTINGS_SCREEN
-import com.vilmar.rememberthemeaning.app.databinding.MainActivityBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
+class MainActivity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+    val mainViewModel: MainViewModel by viewModel()
 
-    @Inject
-    lateinit var fragmentDispatchingAndroidInjector : DispatchingAndroidInjector<androidx.fragment.app.Fragment>
-
-    @Inject
-    lateinit var viewModel: MainViewModel
-
-    private lateinit var binding: MainActivityBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
-
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.main_activity)
-
-        binding.viewModel = viewModel
+        binding = DataBindingUtil.setContentView<ActivityMainBinding>(
+            this,
+            R.layout.activity_main
+        ).apply {
+            viewModel = mainViewModel
+            lifecycleOwner = this@MainActivity
+        }
 
         setupNavigationView()
         observerUIEvents()
-    }
-
-    override fun supportFragmentInjector(): AndroidInjector<androidx.fragment.app.Fragment> {
-        return fragmentDispatchingAndroidInjector
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -68,7 +56,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     }
 
     private fun observerUIEvents() {
-        viewModel.uiEventLiveData.observe(this, Observer {
+        mainViewModel.uiEventLiveData.observe(this, Observer {
             when(it) {
                 OPEN_SETTINGS_SCREEN -> openSettings()
                 OPEN_FEEDBACK_SCREEN -> openFeedback()

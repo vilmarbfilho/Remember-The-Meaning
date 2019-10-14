@@ -1,28 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vilmar.rememberthemeaning.app" >
-
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    package="br.com.vilmar.rememberthemeaning">
 
     <application
-        android:name="br.com.vilmar.rememberthemeaning.RememberTheMeaningApplication"
+        android:name=".RTMApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="br.com.vilmar.rememberthemeaning.ui.common.MainActivity"
+        <activity android:name=".ui.common.MainActivity"
             android:theme="@style/AppThemeDefault" >
 
             <intent-filter>
@@ -35,7 +23,7 @@
         </activity>
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.activity.HomeActivity"
+            android:name=".ui.activity.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppThemeDefault"
             android:launchMode="singleTop"
@@ -51,7 +39,7 @@
         </activity>
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.cadastreedit.CadastreEditActivity"
+            android:name=".ui.cadastreedit.CadastreEditActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <meta-data
@@ -60,33 +48,33 @@
         </activity>
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.activity.RememberActivity"
+            android:name=".ui.activity.RememberActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
 
         </activity>
 
-        <receiver android:name="br.com.vilmar.rememberthemeaning.notification.WordReceiverRecreate">
+        <receiver android:name=".notification.WordReceiverRecreate">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="br.com.vilmar.rememberthemeaning.notification.WordReceiver" />
+        <receiver android:name=".notification.WordReceiver" />
 
         <activity
-            android:name="br.com.vilmar.rememberthemeaning.ui.activity.StatActivity"
+            android:name=".ui.activity.StatActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
         <!-- invalid apikey config yours -->
         <meta-data
             android:name="com.crashlytics.ApiKey"
             android:value="3c604ac0c323da9be02b52203d2dca3ca80ebb5e" />
 
-        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
     </application>
 
 </manifest>

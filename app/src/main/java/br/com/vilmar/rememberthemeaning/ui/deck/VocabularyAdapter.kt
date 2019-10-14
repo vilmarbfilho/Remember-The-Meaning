@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.BindingAdapter
+import br.com.vilmar.rememberthemeaning.R
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
-import com.vilmar.rememberthemeaning.app.R
 
 class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -16,7 +16,7 @@ class VocabularyAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         VocabularyViewHolder(LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.word_item, parent, false))
+            .inflate(R.layout.item_word, parent, false))
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = (holder as VocabularyViewHolder).binding
