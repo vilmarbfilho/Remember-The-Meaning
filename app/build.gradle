@@ -124,7 +124,14 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
     //endregion
 
+    //region test dependencies
+    testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     testImplementation 'junit:junit:4.12'
+    testImplementation "com.google.truth:truth:1.0"
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$rootProject.nhaarmanMockito"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    //endregion
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
