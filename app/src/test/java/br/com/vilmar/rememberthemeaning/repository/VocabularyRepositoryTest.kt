@@ -30,6 +30,6 @@ class VocabularyRepositoryTest : BaseTest() {
 
         Truth
             .assertThat(vocabularyList)
-            .contains(fakeValues)
+            .containsExactlyElementsIn(fakeValues)
     }
 }
