@@ -3,8 +3,8 @@ package br.com.vilmar.rememberthemeaning.ui.deck
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.vilmar.rememberthemeaning.common.extensions.guard
-import br.com.vilmar.rememberthemeaning.common.extensions.triggerEvent
+import br.com.vilmar.rememberthemeaning.commom.extensions.guard
+import br.com.vilmar.rememberthemeaning.commom.extensions.triggerEvent
 import br.com.vilmar.rememberthemeaning.data.database.model.Vocabulary
 import br.com.vilmar.rememberthemeaning.data.repository.VocabularyRepository
 import br.com.vilmar.rememberthemeaning.executor.PostExecutionThread
