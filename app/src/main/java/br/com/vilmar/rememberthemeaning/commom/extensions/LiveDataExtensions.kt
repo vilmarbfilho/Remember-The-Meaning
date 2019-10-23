@@ -1,4 +1,4 @@
-package br.com.vilmar.rememberthemeaning.common.extensions
+package br.com.vilmar.rememberthemeaning.commom.extensions
 
 import androidx.lifecycle.MutableLiveData
 
